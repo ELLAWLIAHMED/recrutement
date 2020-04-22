@@ -134,7 +134,7 @@ $(document).on('click', '.modifier', function (event) {
 		});*/
 
 
-             if(nom && etablissement) {
+             if(nom) {
 		//submi the form to server
 		$.ajax({
 			url : "controller/CommissionController.php",
