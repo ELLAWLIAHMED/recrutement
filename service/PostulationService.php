@@ -29,7 +29,7 @@ class PostulationService {
     }
 
     public function findAll() {
-        $query = "select * from postulation";
+        $query = "select postulation.cin,candidat.nomFrancais,candidat.prenomFrancais,IdConcour,dateDePostulation,postulation.etat,valide,concours.type from postulation,candidat,concours where candidat.cin=postulation.cin and postulation.IdConcour=concours.id";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;

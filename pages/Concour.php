@@ -38,7 +38,7 @@
                     <th>Date Fin Dépot</th>
                     <th>État</th>
                     <th>nbr Poste</th>
-                    <th>Type</th>
+                    <th>Profile Recherché</th>
                     <th>Établissement</th>
                     <th>Commission</th>
                     <th>Option</th>

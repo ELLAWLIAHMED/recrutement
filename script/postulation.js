@@ -17,7 +17,7 @@ $(document).ready(function () {
  $(document).on('click', '.valider', function() {
 
         let cin=$(this).closest('tr').find('th').attr('value');
-        var idconcour=$(this).closest('tr').find('td').eq(0).text();
+        var idconcour=$(this).closest('tr').find('td').eq(0).attr('value');
       
         
         $.ajax({
@@ -40,8 +40,8 @@ $(document).ready(function () {
         var body = "<tr>";
         data.forEach((e) => {
            
-            body    += '<th value='+e.cin+'>'+ e.cin + '</th>';
-            body    += "<td>" + e.IdConcour + "</td>";
+            body    += '<th value='+e.cin+'>'+ e.nomFrancais+'  '+e.prenomFrancais+'</th>';
+            body    += '<td value='+e.IdConcour+'>'+ e.type + "</td>";
             body    += "<td>" + e.dateDePostulation+ "</td>";
             body    += "<td>" + e.etat + "</td>";
             body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=profile&profile='+e.cin+'" ><i class="fas fa-id-badge"></i> Profile </a></td>'+
@@ -56,7 +56,7 @@ $(document).ready(function () {
         $( "#manageMemberTable tbody" ).html("");
 		$( "#manageMemberTable tbody" ).html(body);
 		$("#manageMemberTable").DataTable({
-			scrollX: true,
+			//scrollX: true,
 			language: {
 				"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
 		}});
