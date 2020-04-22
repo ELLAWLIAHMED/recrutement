@@ -134,18 +134,84 @@ $(".removeMessages").html('<div class="alert alert-warning alert-dismissible" ro
 
 
 
+        $(document).on('click', '.add-finish-jury', function () {
+    	       var idthese = $('#hidden').text();
+             var nom=$('#name-jury').val();
+             var prenom=$('#prenom-jury').val();
+             var etablissement=$('#etablissement-jury').val();
+             var grade=$('#grade-jury').val();
+    			$.ajax({
+    				url: 'controller/JuryController.php',
+    				type: 'post',
+    				data: {op: 'add' ,id : 2,nom:nom,prenom:prenom,etablissement:etablissement,grade:grade,idThese:idthese},
+    				dataType: 'json',
+    				success:function(response) {
+    	           	alert('membre de jury ajouté avec succes !')
+    				},
+    				error: function(response){
+    					alert("Error");
 
+
+    				}
+    			});
+
+        });
+
+$(document).on('click', '.ajouter-jury', function (){
+ $('#hidden').text(this.id);
+});
+$(document).on('click', '.supprimer-jury', function (){
+
+ $.ajax({
+   url: 'controller/JuryController.php',
+   type: 'post',
+   data: {op: 'delete' ,id:this.id , idThese:$('#hidden2').text()},
+   dataType: 'json',
+   success:function(response) {
+         remplirJury(response);
+   },
+   error: function(response){
+     alert("Error");
+
+   }
+ });
+});
+$(document).on('click', '.show-jury', function (){
+ $('#hidden2').text(this.id);
+ $.ajax({
+   url: 'controller/JuryController.php',
+   type: 'post',
+   data: {op: '' ,idThese:this.id},
+   dataType: 'json',
+   success:function(response) {
+         remplirJury(response);
+   },
+   error: function(response){
+     alert("Error");
+
+
+   }
+ });
+});
+function remplirJury(response){
+  var body='';
+  for (var i = 0; i < response.length; i++) {
+    body+=`<tr><td>`+response[i].nom +`</td><td>`+response[i].prenom +`</td><td>`+response[i].etablissement +`</td><td>`+response[i].grade +`</td><td><button class='btn btn-danger supprimer-jury' id='`+response[i].id+`'><i class="fas fa-trash"></i></button></td></tr>`;
+  }
+  $('#listejuries').html(body);
+}
         function remplir(data)
         {
           if(data.length>0){
         var body = "<tr>";
         data.forEach((e) => {
-            body    += '<th>'+e.id+'</th>';
+            body    += '<th style="display:none;">'+e.id+'</th>';
             body    += "<th>" + e.type + "</th>";
             body    += "<th>" + e.date + "</th>";
             body    += "<th>" + e.centre+ "</th>";
 
             body += '<td><a target="_blank" href="img/candidats/these/'+e.fichier+'"><i class="far fa-file-pdf fa-2x"></i></a></td>';
+            body += '<td><pre><button class="btn btn-success ajouter-jury" type="button" id="'+e.id+'" data-toggle="modal" data-target="#ADDJURY"><i class="fas fa-plus"></i></button> <button class="btn btn-info show-jury" type="button" data-toggle="modal" data-target="#showjuries" id="'+e.id+'" ><i class="fas fa-list"></i></button></pre></td>';
             body    +=     '<td><div class="dropdown mb-4">'+
                    '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
                       'Option'+

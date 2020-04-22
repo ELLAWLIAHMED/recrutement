@@ -149,7 +149,7 @@ $(".removeMessages").html('<div class="alert alert-warning alert-dismissible" ro
           if(data.length>0){
         var body = "<tr>";
         data.forEach((e) => {
-            body    += '<th>'+e.id+'</th>';
+            body    += '<th style="display:none;">'+e.id+'</th>';
             body    += "<th>" + e.type + "</th>";
             body    += "<th>" + e.specialité + "</th>";
             body    += "<th>" + e.etablissement+ "</th>";

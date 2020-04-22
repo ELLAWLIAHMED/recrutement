@@ -122,6 +122,9 @@ session_start();
 	background-color: rgb(236, 240, 241);
 	color: rgb(0,174,235);
 }
+*{
+  font-family:Arial, Helvetica, sans-serif;
+}
 
 </style>
 <body>

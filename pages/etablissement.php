@@ -36,8 +36,6 @@
                     <th>Abreviation</th>
                     <th>Ville</th>
                     <th>Option</th>
-                    
-                    <th> </th>
                   </tr>
                 </thead>
                     <tbody></tbody>

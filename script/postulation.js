@@ -32,8 +32,8 @@ function rejecter(cin)
         //let cin=event.target.name;
         //let idconcour = $(this).closest('tr').find('td').eq(0).text();
         var idconcour=$(this).closest('tr').find('td').eq(0).text();
-        alert(cin);
-        alert(idconcour);
+        //alert(cin);
+        //alert(idconcour);
         
         $.ajax({
             url: 'controller/PostulationController.php',
