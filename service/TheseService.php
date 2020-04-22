@@ -1,7 +1,6 @@
 <?php
 
 include_once 'beans/These.php';
-include_once 'Connexion/Connexion.php';
 include_once 'dao/IDao.php';
 
 class TheseService implements IDao {

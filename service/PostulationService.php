@@ -58,6 +58,22 @@ class PostulationService {
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
     }
+
+    public function acceptePostulation($cin,$concours) {
+        $query = "update postulation set etat = 'Accepted' where cin = ? and IdConcour= ?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($cin,$concours)) or die("erreur acceptation");
+
+    }
+    public function refuserPostulation($cin,$concours) {
+        $query = "update postulation set etat = 'Refused' where cin = ? and IdConcour= ?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($cin,$concours)) or die("erreur delete");
+
+    }
+
+
+
   }
 
 

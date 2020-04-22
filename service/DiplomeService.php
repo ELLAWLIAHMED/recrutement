@@ -1,7 +1,6 @@
 <?php
 
 include_once 'beans/Diplome.php';
-include_once 'Connexion/Connexion.php';
 include_once 'dao/IDao.php';
 
 class DiplomeService implements IDao {
