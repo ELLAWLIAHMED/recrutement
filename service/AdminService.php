@@ -1,5 +1,4 @@
 <?php
-include_once 'connexion/Connexion.php';                
 include_once 'beans/Admin.php';
 include_once 'dao/IDao.php';
 

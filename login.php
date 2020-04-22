@@ -73,6 +73,7 @@ session_start();
                             		$_SESSION['nom'] = $membre->getNomfr().' '.$membre->getPrenomfr();
                             		$_SESSION['role'] = $utilisateur->getRole();
 									$_SESSION['email'] = $utilisateur->getEmail();
+                  $_SESSION['etablissement']=$membre->getEtablissement();
 									header('Location:./membrehome.php');
 								}
 
@@ -122,6 +123,9 @@ session_start();
 	background-color: rgb(236, 240, 241);
 	color: rgb(0,174,235);
 }
+*{
+  font-family:Arial, Helvetica, sans-serif;
+}
 
 </style>
 <body>
@@ -129,7 +133,7 @@ session_start();
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/bgTest.jpeg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
+				<span class="login100-form-title p-b-41" style='font-family:Arial'>
 					Authentification
 				</span>
 				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">

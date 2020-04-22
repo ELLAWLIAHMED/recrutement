@@ -97,7 +97,7 @@ $(document).on('click', '.modifier', function (event) {
                     var nom = $("#nom").val();
                     var description = $("#description").val();
 					var etablissement=$("#etablissement").val();
-
+       alert(nom);
 			// validation
 			$("#nom").blur(function(){
 				var nom = $("#nom").val();

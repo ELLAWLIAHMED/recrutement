@@ -1,7 +1,7 @@
 <?php
-include_once 'connexion/Connexion.php';                
 include_once 'beans/Utilisateur.php';
 include_once 'dao/IDao.php';
+
 
 class UtilisateurService implements IDao {
 

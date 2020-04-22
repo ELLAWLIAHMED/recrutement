@@ -97,8 +97,17 @@
 </style>
 <?php if(isset($_GET['profile'])){
     include_once 'service/CandidatService.php';
+    include_once 'service/DiplomeService.php';
+    include_once 'service/ExperienceService.php';
+    include_once 'service/TheseService.php';
     $cs = new CandidatService();
+    $ds = new DiplomeService();
+    $es = new ExperienceService();
+    $ts = new TheseService();
     $candidat = $cs->findByCin($_GET['profile']);
+    $diplomes = $ds->findAllbycin($candidat->getCin());
+    $experiences = $es->findAllbyCin($candidat->getCin());
+    $theses = $ts->findAllbyCin($candidat->getCin());
     ?>
 <div class="container emp-profile">
                 <div class="row">
@@ -129,9 +138,6 @@
 
                     <?php if($_SESSION['role'] == "membre") {   ?>
                     <div class="col-md-2">
-                    <a type="button" class="btn btn-danger text-white" > <i class="fas fa-thumbs-down"></i> Rejecter</a>
-                        <br> <br>
-                    <a type="button" class="btn btn-success text-white" ><i class="fas fa-clipboard-check"></i>   &nbsp;Valider</a>
 
                     </div>
                     <?php } ?>
@@ -249,60 +255,95 @@
                             </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                        <div class="col-md-3">
-                            <div class="card mb-3 shadow-sm">
+                        <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIHuvYp5e2kDgXc-fyf8-5U4W-er_rjkXD0QuhkTaG2gDlWFDy&usqp=CAU" 
-                                alt=""width="90%" height="190">
+                                alt=""width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text">CV...</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cv/'.$candidat->getCin().'.pdf';?> ><i class="fas fa-eye"></i> View</a>
+                                        <a type="button" class="btn btn-xs btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cv/'.$candidat->getCin().'.pdf';?> ><i class="fas fa-eye "></i> </a>
                                     </div>
                                     <small class="text-muted">Vérifié</small>
                                 </div>
                             </div>
                             </div>
                          </div>
-                         <div class="col-md-3">
-                            <div class="card mb-3 shadow-sm">
+                         <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
                                 <img src="https://st2.depositphotos.com/5266903/8981/v/950/depositphotos_89816802-stock-illustration-certified-diploma-rounded-vector-icon.jpg" 
-                                alt=""width="90%" height="190">
+                                alt=""width="90%" height="70">
                                 <div class="card-body">
-                                    <p class="card-text">DIPLÔME</p>
+                                    <p class="card-text">DIPLÔMES</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/diplome/'.$candidat->getCin().'.pdf';?>><i class="fas fa-eye"></i> View</a>
+                                        <a type="button" class="btn btn-xs btn-outline-secondary"
+                                        data-toggle="modal" data-target="#diplomesModal"><i class="fas fa-eye"></i> </a>
                                     </div>
                                     <small class="text-muted">Verfifé</small>
                                 </div>
                             </div>
                             </div>
                          </div>
-                         <div class="col-md-3">
-                            <div class="card mb-3 shadow-sm">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU" 
-                                alt="" width="90%" height="190">
+                         <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
+                                <img src="https://www.seekpng.com/png/detail/196-1969742_years-of-experience-icon.png" 
+                                alt=""width="90%" height="70">
                                 <div class="card-body">
-                                    <p class="card-text">CIN RECTO...</p>
+                                    <p class="card-text" style="font-size: small">EXPERIENCES</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cne/'.$candidat->getCinrecto();?>><i class="fas fa-eye"></i> View</a>
+                                        <a type="button" class="btn btn-xs btn-outline-secondary" 
+                                        data-toggle="modal" data-target="#experiencesModal"
+                                        href=<?php echo 'img/candidats/diplome/'.$candidat->getCin().'.pdf';?>><i class="fas fa-eye"></i> </a>
+                                    </div>
+                                    <small class="text-muted">Verfifé</small>
+                                </div>
+                            </div>
+                            </div>
+                         </div>
+                         <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7EHFvQ6_qQ90OqqV9FMilk4f26NCCL41YhlPruJR0F_pRiSah&usqp=CAU" 
+                                alt=""width="60%" height="70">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: small">THÈSES</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-xs btn-outline-secondary" 
+                                        data-toggle="modal" data-target="#thesesModal"
+                                         ><i class="fas fa-eye"></i> </a>
+                                    </div>
+                                    <small class="text-muted">Verfifé</small>
+                                </div>
+                            </div>
+                            </div>
+                         </div>
+                         <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU" 
+                                alt="" width="90%" height="70">
+                                <div class="card-body">
+                                    <p class="card-text">CIN RECTO</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-xs btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cne/'.$candidat->getCinrecto();?>><i class="fas fa-eye"></i> </a>
                                     </div>
                                     <small class="text-muted">Verifé</small>
                                 </div>
                             </div>
                             </div>
                          </div>
-                         <div class="col-md-3">
-                            <div class="card mb-3 shadow-sm">
+                         <div class="col-md-2">
+                            <div class="card mb-2 shadow-sm">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU" 
-                                alt=""width="90%" height="190">
+                                alt=""width="90%" height="70">
                                 <div class="card-body">
-                                    <p class="card-text">CIN VERSO...</p>
+                                    <p class="card-text">CIN VERSO</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cne/'.$candidat->getCinverso();?> ><i class="fas fa-eye"></i> View</a>
+                                        <a type="button" class="btn btn-xs btn-outline-secondary" target="_blank" href=<?php echo 'img/candidats/cne/'.$candidat->getCinverso();?> ><i class="fas fa-eye"></i> </a>
                                     </div>
                                     <small class="text-muted">Verfié</small>
                                 </div>
@@ -317,6 +358,122 @@
             </div>
         </div>
     </div>
+    <!-------------------   MODALS----------------------->
+<div class="modal fade" id="diplomesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="exampleModalLabel">Diplomes</h5>
+          <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            <?php foreach ($diplomes as $diplome) { ?>
+                <a
+                style="cursor: pointer"
+                target="_blank" href="img/candidats/diplome/<?php echo $diplome->fichier;?>"
+                class="list-group-item clearfix text-dark">
+                <div class="pull-left">
+                <h4 class="list-group-item-heading"><?php echo $diplome->type;?></h4>
+                    <p class="list-group-item-text"><?php echo 'Obtenu le '.$diplome->date.' en spécialité '.$diplome->specialité.'.';?></p>
+                    </div>
+                <span class="pull-right">
+                 <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 50px;">
+                </span>
+                </a>
+            <?php } ?>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade " id="experiencesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="exampleModalLabel">Expériences</h5>
+          <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            <?php if(count($experiences) > 0){
+            foreach ($experiences as $experience) { ?>
+                <a
+                style="cursor: pointer"
+                target="_blank" href="img/candidats/experience/<?php echo $experience->attestation;?>"
+                class="list-group-item clearfix text-dark">
+                <div class="pull-left">
+                <h4 class="list-group-item-heading"><?php echo $experience->type;?></h4>
+                    <p class="list-group-item-text"><?php echo 'en '.$experience->titre.' à '.$experience->etablissement;?></p>
+                    </div>
+                <span class="pull-right">
+                 <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 50px;">
+                </span>
+                </a>
+            <?php }}else { ?>
+                <a
+                class="list-group-item clearfix text-dark">
+                <div class="alert alert-danger">Aucune Éxperience</div>
+                </a>
+           <?php } ?>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="thesesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="exampleModalLabel">Thèses</h5>
+          <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            <?php if(count($theses) > 0){
+            foreach ($theses as $these) { ?>
+                <a
+                style="cursor: pointer"
+                target="_blank" href="img/candidats/these/<?php echo $these->fichier;?>"
+                class="list-group-item clearfix text-dark">
+                <div class="pull-left">
+                <h4 class="list-group-item-heading"><?php echo $these->type;?></h4>
+                    <p class="list-group-item-text"><?php echo 'le '.$these->date.' à '.$these->centre;?></p>
+                    </div>
+                <span class="pull-right">
+                 <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 50px;">
+                </span>
+                </a>
+            <?php }}else { ?>
+                <a
+                class="list-group-item clearfix text-dark">
+                <div class="alert alert-danger">Aucune Thèse</div>
+                </a>
+           <?php } ?>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 <?php }else {
     echo "<center><h4>Aucun Profile  !</h4></center>";
 } ?>
