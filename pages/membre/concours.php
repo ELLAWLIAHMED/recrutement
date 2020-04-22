@@ -5,25 +5,23 @@
   @font-face {font-family: "bebas";src: url("fonts/BebasNeue-Bold.ttf");}
 </style>
 <div class="container">
-<h2 class="text-primary" >Vos Concours:</h2>
-  <br><br>
-     <div class="table-responsive">
-				<table class="table table-striped table-bordered table-hover" id="manageMemberTable" name=<?php echo $_SESSION['utilisateur']; ?>>
+<center><h1 class="page-header text-dark" style="font-family: bebas; ">C O N C O U R S</h1> </center>
 
-        <thead class=" text-center">
-          <th>Session</th>
-          <th>Date Debut Depot</th>
-          <th>Date Fin Depot</th>
-          <th>Etat</th>
-          <th>nbr Poste</th>
-          <th>Profile Cherché</th>
-          <th>Commission</th>
-         <th>Consulter</th>
+     <table class="table table-striped" id="manageMemberTable" name=<?php echo $_SESSION['utilisateur']; ?>>
+      <thead class="text-white bg-info text-center">
+        <th>Session</th>
+        <th>Date Debut Depot</th>
+        <th>Date Fin Depot</th>
+        <th>Etat</th>
+        <th>nbr Poste</th>
+        <th>Profile Cherché</th>
+        <th>Commission</th>
+        <th>Consulter</th>
        </thead>
-      <tbody class="text-center" border="1">
-      </tbody>
-      </table>
-</div>
+     <tbody class="text-center" border="1">
+    </tbody>
+    </table>
+
 </div>
 
 <script src="script/membre/concours.js" type="text/javascript"></script>

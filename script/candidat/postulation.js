@@ -45,7 +45,7 @@ $(document).on('click', '.postuler', function () {
   $.ajax({
       url: 'controller/PostulationController.php',
       mimeType: 'json',
-      data: {op: 'add',cin:cin,id:id,etat:"Evaluation"},
+      data: {op: 'add',cin:cin,id:id,etat:"encore d'evaluation"},
       type: "POST"
 });
 alert("postulation avec succes");
@@ -76,7 +76,7 @@ $.ajax({
     data: {op: 'etat',cin:cin,id:id},
     type: "POST",
     success: function(data) {
-         $('#result').text('votre postulation est encore d\''+data[0].etat);
+         $('#result').text('votre postulation est '+data[0].etat);
     },
     error: function(error) {
         alert('Failed!');
@@ -120,7 +120,7 @@ $.ajax({
                         body    += "<th>" + e.dateDebutDepot + "</th>";
                         body    += "<th>" + e.dateFinDepot + "</th>";
                         body    += "<th>" + e.etat+ "</th>";
-                        body    +=     '<td><button class="btn btn-success etat" style="width:50px; margin-right:5px;" id='+e.id+' data-toggle="modal" data-target="#myModal">Etat</button><button  class="btn btn-danger annuler" id='+e.id+'><i class="fas fa-trash-restore-alt"></i></button></td>';
+                        body    +=     '<td><button class="btn btn-success etat" style="width:80px; margin-right:5px;" id='+e.id+' data-toggle="modal" data-target="#myModal">Etat</button><button class="btn btn-danger annuler" id='+e.id+'>Annuler</button></td>';
 
                         body    += "</tr>";
                 });

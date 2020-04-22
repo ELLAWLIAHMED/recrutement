@@ -54,7 +54,7 @@ $(document).ready(function () {
             data.forEach((e) => {
             body    += "<td>" + e.nom + "</td>";
 			body    += "<td>" + e.description + "</td>";
-			body    += "<td style=\"display: none;\">" + e.id + "</td>";
+			body    += "<td style='visibility: hidden;'>" + e.id + "</td>";
             body    += "</tr>";
 		});
 		$( "#manageMemberTable tbody" ).html("");

@@ -13,27 +13,12 @@ $(document).ready(function () {
         alert('Failed!');
     }
 });
-/*
-function valider(cin)
-    {
-        alert('fatima');
-        alert(cin+' VALIDÉÉÉÉ');
-    }
 
-function rejecter(cin)
-    {
-        alert(cin+' REJECTER');
-    }
-  */
  $(document).on('click', '.valider', function() {
 
         let cin=$(this).closest('tr').find('th').attr('value');
-        //let cin=$(this).closest('tr').find('th').text();
-        //let cin=event.target.name;
-        //let idconcour = $(this).closest('tr').find('td').eq(0).text();
         var idconcour=$(this).closest('tr').find('td').eq(0).text();
-        //alert(cin);
-        //alert(idconcour);
+      
         
         $.ajax({
             url: 'controller/PostulationController.php',
@@ -41,14 +26,10 @@ function rejecter(cin)
             type: 'POST',
             success: function(data, textStatus, jqXHR) {
                 window.location.reload();
-                //alert(cin);
-                //alert(idconcour);
-                //location.reload();
-                remplir(data);//je dois remplacer ca avec le lien vers le candidat
+                remplir(data);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
-                alert("pas bien");
             }
         });
     });
@@ -72,15 +53,13 @@ function rejecter(cin)
         //  manageMemberTable.DataTable({scrollX: true});
         //$( "#body" ).html("");
         //$( "#body" ).html(body);
-					$( "#manageMemberTable tbody" ).html("");
-					$( "#manageMemberTable tbody" ).html(body);
-					$("#manageMemberTable").DataTable({
-							scrollX: true,
-							language: {
-								"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+        $( "#manageMemberTable tbody" ).html("");
+		$( "#manageMemberTable tbody" ).html(body);
+		$("#manageMemberTable").DataTable({
+			scrollX: true,
+			language: {
+				"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
 		}});
-
-
         }
 
     });
