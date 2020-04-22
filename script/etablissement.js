@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    var manageMemberTable = $("#manageMemberTable") 
+    var manageMemberTable = $("#manageMemberTable") ; //id de la table
     var etab = manageMemberTable.attr("name");
     $("#manageMemberTable").DataTable({
 	//scrollX: true,
@@ -247,7 +247,6 @@ $(document).on('click', '.modifier', function () {
 		});
                 $( "#manageMemberTable tbody" ).html("");
 		$( "#manageMemberTable tbody" ).html(body);
-                
 		
         }
 
