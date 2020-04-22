@@ -353,14 +353,30 @@ $(document).on('click', '.modifier', function (event) {
 	}
     });
 
+$(document).on('click', '.postule', function() {
 
+        let id=$(this).closest('tr').find('td').attr('value');
+        $.ajax({
+            url: 'controller/ConcourController.php',
+            data: {op: 'afficher', id: id},
+            type: 'POST',
+            success: function(data, textStatus, jqXHR) {
+                window.location.reload();
+                alert(id);
+                href="home.php?p=postulation&postulation="+e.id;
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        });
+    });
 
         function remplir(data)
         {
         var body = "<tr>";
         data.forEach((e) => {
-			console.log(e.id);
-            body    += "<td>" + e.session + "</td>";
+			//console.log(e.id);
+            body    += '<td value='+e.id+'>'+ e.session +'</td>';
             body    += "<td>" + e.dateDebutDepot + "</td>";
             body    += "<td>" + e.dateFinDepot + "</td>";
             body    += "<td>" + e.etat + "</td>";
@@ -377,6 +393,8 @@ $(document).on('click', '.modifier', function (event) {
 					  '<a type="button" id="removeBtn" class="dropdown-item supprimer" name="'+e.id+'"><i class="fa fa-trash"></i> Delete</a>'+
                     '</div>'+
                   '</div></td>';
+            //body    += '<td><button type="button" class="btn btn-info text-white" href="home.php?p=postulation&postulation='+e.id+'" ><i class="fas fa-id-badge"></i>Postulation</button></td>';
+            body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=postulation&concour='+e.id+'" ><i class="fas fa-id-badge"></i> Postulation </a></td>';
             body    += "</tr>";
 		});
 		$( "#manageMemberTable tbody" ).html("");

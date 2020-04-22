@@ -42,6 +42,7 @@
                     <th>Établissement</th>
                     <th>Commission</th>
                     <th>Option</th>
+                    <th>Postulation</th>
                   </tr>
                 </thead>
                     <tbody></tbody>

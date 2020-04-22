@@ -126,12 +126,16 @@
                             </ul>
                         </div>
                     </div>
+
+                    <?php if($_SESSION['role'] == "membre") {   ?>
                     <div class="col-md-2">
                     <a type="button" class="btn btn-danger text-white" > <i class="fas fa-thumbs-down"></i> Rejecter</a>
                         <br> <br>
                     <a type="button" class="btn btn-success text-white" ><i class="fas fa-clipboard-check"></i>   &nbsp;Valider</a>
 
                     </div>
+                    <?php } ?>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">
