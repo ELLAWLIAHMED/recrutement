@@ -73,7 +73,7 @@ $tmp_dir = $_FILES['fichierpublication']['tmp_name'];
       <table class="table table-striped " id="manageMemberTable" >
         <thead>
           <tr>
-            <th style="display:none;">Id</th>
+            <th>Id</th>
             <th>url</th>
             <th>titre</th>
             <th>date</th>

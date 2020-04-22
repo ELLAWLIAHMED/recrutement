@@ -67,7 +67,7 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
       <table class="table table-striped " id="manageMemberTable" >
         <thead>
           <tr>
-            <th style="display:none;">Id</th>
+            <th>Id</th>
             <th>type d'enseignement</th>
             <th>titre de formation</th>
             <th>etablissement</th>
