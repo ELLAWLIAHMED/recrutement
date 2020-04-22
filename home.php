@@ -87,7 +87,13 @@ if ($_SESSION["utilisateur"]) {
       </li>
 
       <?php } ?>
-
+      
+        <li class="nav-item">
+        <a class="nav-link" href="home.php?p=postulation">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Postulations</span></a>
+      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="home.php?p=commission">
         <i class="fas fa-users"></i>
@@ -425,6 +431,10 @@ if ($_SESSION["utilisateur"]) {
                           include_once './pages/Candidat.php';
                       }elseif($_GET['p']=="concours"){
                         include_once './pages/Concour.php';
+                      }elseif ($_GET['p']=="profile"){
+                          include_once './pages/membre/profile.php';
+                      }elseif($_GET['p']=="postulation"){
+                        include_once './pages/postulation.php';
                       }elseif($_GET['p']=="statistiques"){
                         include_once './pages/statistique.php';
                       }elseif($_GET['p']=="commission"){

@@ -1,6 +1,12 @@
 
 $(document).ready(function () {
     $.ajax({
+        /*
+        scrollX: true,
+	language: {
+	"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+	},
+        */
         url: 'controller/EtablissementController.php',
         mimeType: 'json',
         data: {op: ''},
@@ -216,7 +222,7 @@ $(document).on('click', '.modifier', function () {
         {
         var body = "<tr>";
         data.forEach((e) => {
-            body    += '<td><img src="img/'+e.logo+'" class="rounded img-responsive"/ width="60" height="50"></td>';
+            body    += '<td><img src="img/'+e.logo+'" class="rounded img-responsive" width="60" height="50"></td>';
             body    += "<td>" + e.libelleArab + "</td>";
             body    += "<td>" + e.libelleFrancais + "</td>";
             body    += "<td>" + e.abrOrg + "</td>";
