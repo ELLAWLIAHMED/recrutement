@@ -1,16 +1,18 @@
 $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
-
+  //alert(etab);
+	var etablissement=$('#ETABLISSEMENTID').text();
+	//alert(etablissement);
 	$.ajax({
         url: 'controller/ConcourController.php',
         mimeType: 'json',
-        data: {op: '',etab: etab},
+        data: {op: '',etab: etablissement},
         type: "POST",
     success: function(data) {
         remplir(data);
     },
     error: function(error) {
-        alert('Failed!');
+        alert('Failed');
     }
 	});
 
@@ -70,7 +72,7 @@ $(document).on('click', '.modifier', function (event) {
      let type=$(this).closest('tr').find('td').eq(5).text();
 	 let etablissement=$(this).closest('tr').find('td').eq(6).text();
 	 let commission=$(this).closest('tr').find('td').eq(7).text();
-	
+
 	 let etablissement_id;
 	 $.ajax({
         url: 'controller/EtablissementController.php',
@@ -86,7 +88,7 @@ $(document).on('click', '.modifier', function (event) {
     	}
 	});
 
-	 
+
      $("#session").val(session);
      $("#dateDebutDepot").val(dateDebutDepot);
      $("#dateFinDepot").val(dateFinDepot);
@@ -143,7 +145,7 @@ $(document).on('click', '.modifier', function (event) {
 
 //AJOUT D'UN NV CONCOUR
     $("#addMemberModalBtn").on('click', function() {
-	
+
 	$.ajax({
 		url: 'controller/CommissionController.php',
 		mimeType: 'json',
@@ -320,7 +322,7 @@ $(document).on('click', '.modifier', function (event) {
 
 
     $(document).on('click', '.supprimer', function () {
-		
+
 		let id=event.target.name;
 
         if(id) {
@@ -337,7 +339,7 @@ $(document).on('click', '.modifier', function (event) {
 						// refresh the table
 						remplir(response);
 						// close the modal
-						$("#removeMemberModal").modal('hide');					
+						$("#removeMemberModal").modal('hide');
 				},
 				error: function(response){
 					alert("Error");
@@ -366,7 +368,10 @@ $(document).on('click', '.modifier', function (event) {
             body    += "<td>" + e.etat + "</td>";
             body    += "<td>" + e.nbrPoste + "</td>";
             body    += "<td>" + e.type + "</td>";
-			body    += "<td>" + e.libelleFrancais + "</td>";
+						if ($('#ETABLISSEMENTID').text()=='') {
+							body    += "<td>" + e.libelleFrancais + "</td>";
+						}
+
 			body    += "<td>" + e.commission + "</td>";
             body    +=     '<td><div class="dropdown mb-4">'+
                    '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+

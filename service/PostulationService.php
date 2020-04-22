@@ -29,7 +29,7 @@ class PostulationService {
     }
 
     public function findAll() {
-        $query = "select postulation.cin,candidat.nomFrancais,candidat.prenomFrancais,IdConcour,dateDePostulation,postulation.etat,valide,concours.type from postulation,candidat,concours where candidat.cin=postulation.cin and postulation.IdConcour=concours.id";
+        $query = "select * from postulation";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
@@ -58,6 +58,22 @@ class PostulationService {
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
     }
+
+    public function acceptePostulation($cin,$concours) {
+        $query = "update postulation set etat = 'Accepted' where cin = ? and IdConcour= ?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($cin,$concours)) or die("erreur acceptation");
+
+    }
+    public function refuserPostulation($cin,$concours) {
+        $query = "update postulation set etat = 'Refused' where cin = ? and IdConcour= ?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($cin,$concours)) or die("erreur delete");
+
+    }
+
+
+
   }
 
 

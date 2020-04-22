@@ -1,12 +1,5 @@
 
 $(document).ready(function () {
-    var manageMemberTable = $("#manageMemberTable") ; //id de la table
-    var etab = manageMemberTable.attr("name");
-    $("#manageMemberTable").DataTable({
-	//scrollX: true,
-	language: {
-            "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-		}});
     $.ajax({
         /*
         scrollX: true,
@@ -206,7 +199,7 @@ $(document).on('click', '.modifier', function () {
 						// refresh the table
 						remplir(response);
 						// close the modal
-						$("#removeMemberModal").modal('hide');					
+						$("#removeMemberModal").modal('hide');
 				},
 				error: function(response){
 					alert("Error");
@@ -245,9 +238,16 @@ $(document).on('click', '.modifier', function () {
                   '</div></td>';
             body    += "</tr>";
 		});
-                $( "#manageMemberTable tbody" ).html("");
+		$( "#manageMemberTable tbody" ).html("");
 		$( "#manageMemberTable tbody" ).html(body);
-		
+		$("#manageMemberTable").DataTable({
+				//scrollX: true,
+				language: {
+					"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+			}});
+
+        /*DataTables instantiation.*/
+
         }
 
     });

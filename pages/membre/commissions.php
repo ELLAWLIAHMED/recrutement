@@ -3,7 +3,7 @@
         <div class="table_container">
           <div class="row">
             <div class="col-md-12">
-              <center><h2 class="page-header text-dark" style="font-family: Suez One; ">VOS COMMISSIONS</h2> </center>
+              <h2 class=" text-center  text-uppercase font-weight-bold" >VOS COMMISSIONS</h2>
               <br>
               <div class="removeMessages"></div>
 
@@ -27,7 +27,7 @@
                   <tr>
                     <th>nom</th>
                     <th>Description</th>
-                    <th style="visibility: hidden;">
+                    <th style="display: none;"></th>
                   </tr>
                 </thead>
                     <tbody></tbody>
