@@ -12,7 +12,7 @@ $(document).ready(function () {
         remplir(data);
     },
     error: function(error) {
-        alert('Failed!');
+        alert('Failed');
     }
 });
 
@@ -62,7 +62,7 @@ function remplir(data)
 
 		});
     $( "#manageMemberTable" ).DataTable({
-        scrollX: true,
+        //scrollX: true,
         language: {
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
         }});
@@ -105,14 +105,14 @@ if(confirm('Etes vous sure de vouloir accepter Mr.'+nom+' '+prenom)){
                         remplir(data);
                     },
                     error: function(error) {
-                        alert('Failed!');
+                        alert('Failed');
                     }
                 });
-        
+
             }
         },
         error: function(error) {
-            alert('Failed!');
+            alert('Failed');
         }
     });
 }else{
@@ -134,11 +134,11 @@ function rejeter(cin,nom,prenom)
             remplir(data);
         },
         error: function(error) {
-            alert('Failed!');
+            alert('Failed');
         }
     });
 }
 
-		
+
 
     });

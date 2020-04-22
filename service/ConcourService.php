@@ -22,6 +22,11 @@ class ConcourService implements IDao {
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($id)) or die("erreur delete");
     }
+    public function afficher($id) {
+        $query = "select * FROM postulation WHERE IdConcour = ?";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($id)) or die("erreur afficher");
+    }
 
     public function findAll() {
         $query = "select concours.id,session,dateDebutDepot,dateFinDepot,etat,nbrPoste,type,libelleFrancais, commission.nom as commission from concours join etablissement on concours.etablissement = etablissement.id left join commission on concours.commission =commission.id";

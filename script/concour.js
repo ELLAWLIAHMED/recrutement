@@ -1,16 +1,18 @@
 $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
-
+  //alert(etab);
+	var etablissement=$('#ETABLISSEMENTID').text();
+	//alert(etablissement);
 	$.ajax({
         url: 'controller/ConcourController.php',
         mimeType: 'json',
-        data: {op: '',etab: etab},
+        data: {op: '',etab: etablissement},
         type: "POST",
     success: function(data) {
         remplir(data);
     },
     error: function(error) {
-        alert('Failed!');
+        alert('Failed');
     }
 	});
 
@@ -70,7 +72,7 @@ $(document).on('click', '.modifier', function (event) {
      let type=$(this).closest('tr').find('td').eq(5).text();
 	 let etablissement=$(this).closest('tr').find('td').eq(6).text();
 	 let commission=$(this).closest('tr').find('td').eq(7).text();
-	
+
 	 let etablissement_id;
 	 $.ajax({
         url: 'controller/EtablissementController.php',
@@ -86,7 +88,7 @@ $(document).on('click', '.modifier', function (event) {
     	}
 	});
 
-	 
+
      $("#session").val(session);
      $("#dateDebutDepot").val(dateDebutDepot);
      $("#dateFinDepot").val(dateFinDepot);
@@ -143,7 +145,7 @@ $(document).on('click', '.modifier', function (event) {
 
 //AJOUT D'UN NV CONCOUR
     $("#addMemberModalBtn").on('click', function() {
-	
+
 	$.ajax({
 		url: 'controller/CommissionController.php',
 		mimeType: 'json',
@@ -320,7 +322,7 @@ $(document).on('click', '.modifier', function (event) {
 
 
     $(document).on('click', '.supprimer', function () {
-		
+
 		let id=event.target.name;
 
         if(id) {
@@ -337,7 +339,7 @@ $(document).on('click', '.modifier', function (event) {
 						// refresh the table
 						remplir(response);
 						// close the modal
-						$("#removeMemberModal").modal('hide');					
+						$("#removeMemberModal").modal('hide');
 				},
 				error: function(response){
 					alert("Error");
@@ -353,20 +355,39 @@ $(document).on('click', '.modifier', function (event) {
 	}
     });
 
+$(document).on('click', '.postule', function() {
 
+        let id=$(this).closest('tr').find('td').attr('value');
+        $.ajax({
+            url: 'controller/ConcourController.php',
+            data: {op: 'afficher', id: id},
+            type: 'POST',
+            success: function(data, textStatus, jqXHR) {
+                window.location.reload();
+                alert(id);
+                href="home.php?p=postulation&postulation="+e.id;
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        });
+    });
 
         function remplir(data)
         {
         var body = "<tr>";
         data.forEach((e) => {
-			console.log(e.id);
-            body    += "<td>" + e.session + "</td>";
+			//console.log(e.id);
+            body    += '<td value='+e.id+'>'+ e.session +'</td>';
             body    += "<td>" + e.dateDebutDepot + "</td>";
             body    += "<td>" + e.dateFinDepot + "</td>";
             body    += "<td>" + e.etat + "</td>";
             body    += "<td>" + e.nbrPoste + "</td>";
             body    += "<td>" + e.type + "</td>";
-			body    += "<td>" + e.libelleFrancais + "</td>";
+						if ($('#ETABLISSEMENTID').text()=='') {
+							body    += "<td>" + e.libelleFrancais + "</td>";
+						}
+
 			body    += "<td>" + e.commission + "</td>";
             body    +=     '<td><div class="dropdown mb-4">'+
                    '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
@@ -377,6 +398,8 @@ $(document).on('click', '.modifier', function (event) {
 					  '<a type="button" id="removeBtn" class="dropdown-item supprimer" name="'+e.id+'"><i class="fa fa-trash"></i> Delete</a>'+
                     '</div>'+
                   '</div></td>';
+            //body    += '<td><button type="button" class="btn btn-info text-white" href="home.php?p=postulation&postulation='+e.id+'" ><i class="fas fa-id-badge"></i>Postulation</button></td>';
+            body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=postulation&concour='+e.id+'" ><i class="fas fa-id-badge"></i> Postulation </a></td>';
             body    += "</tr>";
 		});
 		$( "#manageMemberTable tbody" ).html("");

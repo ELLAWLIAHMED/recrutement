@@ -13,6 +13,8 @@ if ($op != '') {
         $ms->update(new Concour($id, $session, $dateDebutDepot, $dateFinDepot, $etat, $nbrPoste, $type, $etablissement,$commission));
     } elseif ($op == 'delete') {
         $ms->delete($ms->delete($id));
+    } elseif ($op == 'afficher') {
+        $ms->delete($ms->afficher($id));
     }elseif ($op == 'getByCommissions') {
         header('Content-type: application/json');
         echo json_encode($ms->getByCommissions($commissions));
@@ -31,6 +33,8 @@ echo json_encode($ms->findAll());
                 $ms->update(new Concour($id, $session, $dateDebutDepot, $dateFinDepot, $etat, $nbrPoste, $type, $etab,$commission));
         } elseif ($op == 'delete') {
                 $ms->delete($ms->delete($id));
+        } elseif ($op == 'afficher') {
+                $ms->delete($ms->afficher($id));
         }
     }
 

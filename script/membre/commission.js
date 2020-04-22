@@ -11,7 +11,7 @@ $(document).ready(function () {
         remplir(data);
     },
     error: function(error) {
-        alert('Failed!');
+        alert('Failed');
     }
 });
 
@@ -26,14 +26,14 @@ $(document).ready(function () {
         });
 		$('#listTitle').html('Membres de la '+data[0].col0);
 		commission = data[2].col2;
-		
+
 		//now use AJAX with data, which is on the form [ { col1 : value, col2: value ..}]
 		$.ajax({
 			url: 'controller/CMController.php',
 			mimeType: 'json',
 			data: {op: 'show',commission: commission },
 			type: "POST",
-			scrollX: true,
+			//scrollX: true,
 		  success: function(data) {
 				ListMembres(data);
 			},
@@ -42,7 +42,7 @@ $(document).ready(function () {
 		  }
 		  });
 
-				
+
 
 	});
 
@@ -59,13 +59,13 @@ $(document).ready(function () {
 		});
 		$( "#manageMemberTable tbody" ).html("");
 			$( "#manageMemberTable tbody" ).html(body);
-			$( "#manageMemberTable" ).DataTable({scrollX: true});
+			$( "#manageMemberTable" ).DataTable();
         }else{
             $( "#manageMemberTable tbody" ).html('<td colspan=6><div class="alert alert-success">Vous n\'etes affecté(e) à aucune commission</div></td>');
           }
 
 		}
-		
+
 
 		function ListMembres(data)
         {
@@ -85,7 +85,7 @@ $(document).ready(function () {
 			    body += '<span class="pull-right">'+
 			    '<img src="img/membre/'+e.photo+'" alt="" class="img-responsive" style="max-height: 50px;">'+
 			    '</span>'+
-                '</a>';	
+                '</a>';
             }else{
                 body+= '<a style="cursor: pointer"'+
                 'class="list-group-item clearfix">';
@@ -96,13 +96,13 @@ $(document).ready(function () {
                 body += '<span class="pull-right">'+
                 '<img src="img/membre/'+e.photo+'" alt="" class="img-responsive" style="max-height: 50px;">'+
                 '</span>'+
-                '</a>';	
+                '</a>';
             }
 			});
 			$( "#membersList").html(body);
         	}
 		}
 
-		
+
 
     });

@@ -7,6 +7,7 @@
 <div class="container">
 <h2 class="text-primary" >Vos Concours:</h2>
   <br><br>
+    <p id='ETABLISSEMENTID' style='display:none'><?php echo $_SESSION['etablissement']; ?></p>
      <div class="table-responsive">
 				<table class="table table-striped table-bordered table-hover" id="manageMemberTable" name=<?php echo $_SESSION['utilisateur']; ?>>
 

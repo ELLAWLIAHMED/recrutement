@@ -135,9 +135,13 @@
                             </ul>
                         </div>
                     </div>
+
+                    <?php if($_SESSION['role'] == "membre") {   ?>
                     <div class="col-md-2">
 
                     </div>
+                    <?php } ?>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">

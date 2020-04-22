@@ -199,7 +199,7 @@ $(document).on('click', '.modifier', function () {
 						// refresh the table
 						remplir(response);
 						// close the modal
-						$("#removeMemberModal").modal('hide');					
+						$("#removeMemberModal").modal('hide');
 				},
 				error: function(response){
 					alert("Error");
@@ -241,11 +241,11 @@ $(document).on('click', '.modifier', function () {
 		$( "#manageMemberTable tbody" ).html("");
 		$( "#manageMemberTable tbody" ).html(body);
 		$("#manageMemberTable").DataTable({
-				scrollX: true,
+				//scrollX: true,
 				language: {
 					"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
 			}});
-	  
+
         /*DataTables instantiation.*/
 
         }
