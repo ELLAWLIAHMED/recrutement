@@ -30,7 +30,7 @@
                 <thead>
                   <tr>
                     <th>Candidat</th>
-                    <th>IdConcour</th>
+                    <th>Profile Recherché</th>
                     <th>Date de postulation</th>
                     <th>État</th>
                     <th>Consulter</th>

@@ -28,4 +28,3 @@
 </div>
 
 <script src="script/membre/concours.js" type="text/javascript"></script>
-<script src="script/concour.js" type="text/javascript"></script>
