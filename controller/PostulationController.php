@@ -10,8 +10,6 @@ if ($op != '') {
     $ms->create($cin,$id,$etat);
     }elseif ($op == 'delete') {
         $ms->delete($ms->delete($cin,$id));
-    }elseif ($op == 'valide') {
-        $ms->delete($ms->valide($cin,$id));
     }elseif ($op == 'findallbycin') {
       header('Content-type: application/json');
       echo json_encode($ms->findBycin($cin));

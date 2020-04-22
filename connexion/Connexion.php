@@ -6,9 +6,9 @@ class Connexion {
 
     public function __construct() {
         $host = 'localhost';
-        $dbname = 'Erecrutement';
+        $dbname = 'recrutement4';
         $login = 'root';
-        $password = 'root';
+        $password = '';
         try {
             $this->connexion = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
             $this->connexion->query("SET NAMES UTF8");

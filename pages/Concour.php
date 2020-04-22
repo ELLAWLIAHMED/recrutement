@@ -22,7 +22,7 @@
               } ?></div>
 
               <button class="btn btn-primary pull pull-right" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
-                <i class="fas fa-plus-circle"></i> Ajouter un Concours
+                <i class="fas fa-plus-circle"></i> Ajouter un Concour
               </button>
 
               <br /> <br /> <br />
@@ -34,12 +34,12 @@
                 <thead>
                   <tr>
                     <th>Session</th>
-                    <th>Date Début Dépot</th>
-                    <th>Date Fin Dépot</th>
-                    <th>État</th>
+                    <th>Date Debut Depot</th>
+                    <th>Date Fin Depot</th>
+                    <th>Etat</th>
                     <th>nbr Poste</th>
                     <th>Type</th>
-                    <th>Établissement</th>
+                    <th>Etablissement</th>
                     <th>Commission</th>
                     <th>Option</th>
                   </tr>
@@ -53,41 +53,41 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title"><i class="fas fa-plus-circle"></i>Ajouter un Concours</h4>
+                <h4 class="modal-title"><i class="fas fa-plus-circle"></i>Ajouter un concour</h4>
               </div>
 
                 <form  method="post"  class="form-horizontal" id="createMemberForm" enctype="multipart/form-data">
 
-              <div class="modal-body row">
+              <div class="modal-body">
                 <div class="messages"></div>
-               <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
+               <div class="form-group"> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-5 control-label">Session</label>
-                <div>
+                <div class="col-sm-10">
                   <input type="date" class="form-control" id="session" name="session" placeholder="session" required>
               <!-- here the text will apper  -->
 				<div id="sessionError"></div>
 
                 </div>
               </div>
-               <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
-                <label for="name" class="col-sm-5 control-label">Date_Début_Dépot</label>
-                <div>
+               <div class="form-group"> <!--/here teh addclass has-error will appear -->
+                <label for="name" class="col-sm-5 control-label">Date_Debut_Depot</label>
+                <div class="col-sm-10">
                   <input type="date" class="form-control" id="dateDebutDepot" name="dateDebutDepot" required>
               <!-- here the text will apper  -->
 				<div id="dateDebutDepotError"></div>
 
                 </div>
               </div>
-               <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
-                <label for="name" class="col-sm-2 control-label">Date_Fin_Dépot</label>
-                <div>
+               <div class="form-group"> <!--/here teh addclass has-error will appear -->
+                <label for="name" class="col-sm-2 control-label">Date_Fin_Depot</label>
+                <div class="col-sm-10">
                   <input type="date" class="form-control" id="dateFinDepot" name="dateFinDepot" required>
 		<div id="dateFinDepotError"></div>
                 </div>
               </div>
-               <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
-                <label for="name" class="col-sm-2 control-label">État</label>
-                <div>
+               <div class="form-group"> <!--/here teh addclass has-error will appear -->
+                <label for="name" class="col-sm-2 control-label">Etat</label>
+                <div class="col-sm-10">
                     <select type="text" class="form-control" id="etat" name="etat" required>
 			<option>Ferme</option>
                         <option>Ouvert</option>
@@ -96,17 +96,17 @@
                 </div>
               </div>
 
-		<div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
-		 <label for="name" class="col-sm-2 control-label">Nombre_de_Poste</label>
-                <div>
+		<div class="form-group"> <!--/here teh addclass has-error will appear -->
+		 <label for="name" class="col-sm-2 control-label">Nbr_Poste</label>
+                <div class="col-sm-10">
                 <input type="number" class="form-control" id="nbrPoste" name="nbrPoste" required>
                 <div id="nbrPosteError"></div>
 				<!-- here the text will apper  -->
                     </div>
                 </div>
-                <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
+                <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Type</label>
-                <div>
+                <div class="col-sm-10">
                 <input type="text" class="form-control" id="type" name="type" required>
                 <div id="typeError"></div>
 				<!-- here the text will apper  -->
@@ -114,9 +114,9 @@
                 </div>
 
                 <?php if($_SESSION['role'] == 'super-admin'){ ?>
-              <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
-		            <label for="etablissement" class="col-sm-2 control-label">Établissement</label>
-                <div>
+              <div class="form-group"> <!--/here teh addclass has-error will appear -->
+		            <label for="etablissement" class="col-sm-2 control-label">Etablissement</label>
+                <div class="col-sm-10">
                 <select name="etablissement" class="form-control" type="text" id="etablissement" required>
                     <option> </option>
                 </select>
@@ -126,9 +126,9 @@
                 </div>
                 <?php } ?>
 
-                <div class="form-group col-sm-6 mb-4"> <!--/here teh addclass has-error will appear -->
+                <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		            <label for="commission" class="col-sm-2 control-label">Commission</label>
-                <div>
+                <div class="col-sm-10">
                 <select name="commission" class="form-control" type="text" id="commission" required>
                     <option> </option>
                 </select>
