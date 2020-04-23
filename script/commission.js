@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
-
 	$('.Mycard').hide();
     $.ajax({
         url: 'controller/CommissionController.php',
@@ -41,7 +40,7 @@ $(document).on('click', '.modifier', function (event) {
   $(".form-group").removeClass('has-error').removeClass('has-success');
   $(".text-danger").remove();
   $(".messages").html("");
-     let id=event.target.name;
+	 const id = $(this).attr('name');
      let nom=$(this).closest('tr').find('td').eq(0).text();
 	 let description=$(this).closest('tr').find('td').eq(1).text();
 	 let etablissement=$(this).closest('tr').find('td').eq(2).text();
@@ -58,10 +57,9 @@ $(document).on('click', '.modifier', function (event) {
 
                      $.ajax({
                     url: 'controller/CommissionController.php',
-                    data: {op: 'update',id:Number(id),nom: nom,description: description,etablissement:Number(etablissement)},
+                    data: {op: 'update',id:Number(id),nom: nom,description: description,etab: etab == "" ? etablissement : etab},
                     type: 'POST',
                     success: function (data, textStatus, jqXHR) {
-						alert("Succues");
                         remplir(data);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -97,7 +95,6 @@ $(document).on('click', '.modifier', function (event) {
                     var nom = $("#nom").val();
                     var description = $("#description").val();
 					var etablissement=$("#etablissement").val();
-       alert(nom);
 			// validation
 			$("#nom").blur(function(){
 				var nom = $("#nom").val();
@@ -135,11 +132,12 @@ $(document).on('click', '.modifier', function (event) {
 
 
              if(nom) {
+				 alert('nom: '+nom+'\n desc: '+description+'\n etab: '+etablissement);
 		//submi the form to server
 		$.ajax({
 			url : "controller/CommissionController.php",
             type : "POST",
-            data : {op: 'add',nom: nom,description: description,etablissement:etablissement},
+            data : {op: 'add',nom: nom,description: description,etab: etab == "" ? etablissement : etab},
 			dataType : 'json',
 			success:function(response) {
                 // remove the error
@@ -170,13 +168,15 @@ $(document).on('click', '.modifier', function (event) {
 
     $(document).on('click', '.supprimer', function () {
 	 var id = $(this).attr('name');
+	 alert('id to delete: '+id);
         if(id) {
 			$.ajax({
 				url: 'controller/CommissionController.php',
 				type: 'post',
-				data: {op: 'delete' ,id : id},
+				data: {op: 'delete' ,id : id,etab: etab},
 				dataType: 'json',
 				success:function(response) {
+					alert(JSON.stringify(response));
 						$(".removeMessages").html('<div class="alert alert-info alert-dismissible" role="alert">'+
 							  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
 							  '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Commission bien supprimé !!!'+
@@ -187,6 +187,7 @@ $(document).on('click', '.modifier', function (event) {
 						$("#removeMemberModal").modal('hide');
 				},
 				error: function(response){
+					alert(JSON.stringify(response));
 					alert("Error");
 					$(".removeMessages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
 						  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+

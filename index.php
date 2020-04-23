@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+    if ( isset($_SESSION['role']) && ( $_SESSION['role'] == "admin" || $_SESSION['role'] == "super-admin") ) {
+	header("Location: home.php");
+	exit;
+    }elseif(isset($_SESSION['role']) && $_SESSION['role'] == "candidat"){
+		header("Location: candidathome.php");
+		exit;
+	}elseif(isset($_SESSION['role']) && $_SESSION['role'] == "membre"){
+		header("Location: membrehome.php");
+		exit;
+	} ?>
 <!DOCTYPE html>
 <html lang="en">
 

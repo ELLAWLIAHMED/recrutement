@@ -370,7 +370,8 @@
         </div>
         <div class="modal-body">
             <div class="list-group">
-            <?php foreach ($diplomes as $diplome) { ?>
+            <?php if(count($diplomes) > 0){
+            foreach ($diplomes as $diplome) { ?>
                 <a
                 style="cursor: pointer"
                 target="_blank" href="img/candidats/diplome/<?php echo $diplome->fichier;?>"
@@ -383,7 +384,12 @@
                  <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 50px;">
                 </span>
                 </a>
-            <?php } ?>
+                <?php }}else { ?>
+                <a
+                class="list-group-item clearfix text-dark">
+                <div class="alert alert-danger">Aucun Diplome</div>
+                </a>
+           <?php } ?>
             </div>
         </div>
         <div class="modal-footer">
