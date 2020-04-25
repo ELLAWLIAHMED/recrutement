@@ -6,7 +6,7 @@ class Connexion {
 
     public function __construct() {
         $host = 'localhost';
-        $dbname = 'erecrutement';
+        $dbname = 'recrutement';
         $login = 'root';
         $password = 'root';
         try {
