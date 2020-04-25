@@ -198,7 +198,7 @@
                                             </div>
                                         </div>
 
-                                </div>        
+                                </div>
                                 <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -249,15 +249,15 @@
                                             </div>
                                         </div>
 
-                                </div>  
-                            </div>  
-                                
+                                </div>
+                            </div>
+
                             </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                         <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIHuvYp5e2kDgXc-fyf8-5U4W-er_rjkXD0QuhkTaG2gDlWFDy&usqp=CAU" 
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIHuvYp5e2kDgXc-fyf8-5U4W-er_rjkXD0QuhkTaG2gDlWFDy&usqp=CAU"
                                 alt=""width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text">CV...</p>
@@ -272,7 +272,7 @@
                          </div>
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://st2.depositphotos.com/5266903/8981/v/950/depositphotos_89816802-stock-illustration-certified-diploma-rounded-vector-icon.jpg" 
+                                <img src="https://st2.depositphotos.com/5266903/8981/v/950/depositphotos_89816802-stock-illustration-certified-diploma-rounded-vector-icon.jpg"
                                 alt=""width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text">DIPLÔMES</p>
@@ -288,13 +288,13 @@
                          </div>
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://www.seekpng.com/png/detail/196-1969742_years-of-experience-icon.png" 
-                                alt=""width="90%" height="70">
+                                <img src="https://www.seekpng.com/png/detail/196-1969817_lighthouse-experience-icon-experience-icon.png"
+                                alt=""width="90%" height="70" style='margin:25px 0px'>
                                 <div class="card-body">
                                     <p class="card-text" style="font-size: small">EXPERIENCES</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-xs btn-outline-secondary" 
+                                        <a type="button" class="btn btn-xs btn-outline-secondary"
                                         data-toggle="modal" data-target="#experiencesModal"
                                         href=<?php echo 'img/candidats/diplome/'.$candidat->getCin().'.pdf';?>><i class="fas fa-eye"></i> </a>
                                     </div>
@@ -305,13 +305,13 @@
                          </div>
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7EHFvQ6_qQ90OqqV9FMilk4f26NCCL41YhlPruJR0F_pRiSah&usqp=CAU" 
-                                alt=""width="60%" height="70">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7EHFvQ6_qQ90OqqV9FMilk4f26NCCL41YhlPruJR0F_pRiSah&usqp=CAU"
+                                alt=""width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text" style="font-size: small">THÈSES</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-xs btn-outline-secondary" 
+                                        <a type="button" class="btn btn-xs btn-outline-secondary"
                                         data-toggle="modal" data-target="#thesesModal"
                                          ><i class="fas fa-eye"></i> </a>
                                     </div>
@@ -322,7 +322,7 @@
                          </div>
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU" 
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU"
                                 alt="" width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text">CIN RECTO</p>
@@ -337,7 +337,7 @@
                          </div>
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU" 
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZP_ow-gnyo80I_SDitLTQgyvoUTSiFasxvz0YL78rp9A-O6Fm&usqp=CAU"
                                 alt=""width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text">CIN VERSO</p>
@@ -349,10 +349,10 @@
                                 </div>
                             </div>
                             </div>
-                         </div> 
+                         </div>
 
 
-                        </div>         
+                        </div>
                     </div>
                 </div>
             </div>

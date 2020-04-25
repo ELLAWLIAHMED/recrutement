@@ -87,8 +87,8 @@ if ($_SESSION["utilisateur"]) {
       </li>
 
       <?php } ?>
-      
-      
+
+
       <li class="nav-item">
         <a class="nav-link" href="home.php?p=commission">
         <i class="fas fa-users"></i>
@@ -282,9 +282,12 @@ if ($_SESSION["utilisateur"]) {
                   <?php
                                         if (isset($_SESSION['role'])) {
                                             echo "(".$_SESSION['role'].")";
+                                          if( $_SESSION['role']=='admin'){
+                                              echo '-'.strtoupper($_SESSION['abrEtab']);
+                                          }
                                         }
                                     ?> </span>
-                <span id="adminEtab" style="display: none;"><?php 
+                <span id="adminEtab" style="display: none;"><?php
                 if($_SESSION["etablissement"] && $_SESSION["role"] == 'admin')
                 echo $_SESSION["etablissement"];
                 else  echo ''; ?></span>
@@ -335,7 +338,7 @@ if ($_SESSION["utilisateur"]) {
                       <!--<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>-->
                     </div>
                     <div class="col-auto">
-                     <i class="fas fa-calendar fa-2x text-gray-300 fas fa-user-graduate"></i>  
+                     <i class="fas fa-calendar fa-2x text-gray-300 fas fa-user-graduate"></i>
                     </div>
                   </div>
                 </div>
@@ -470,7 +473,7 @@ if ($_SESSION["utilisateur"]) {
             </div>
 
         </main>
-        <!-- page-content" -->        
+        <!-- page-content" -->
         <!-- /.container-fluid -->
 
       </div>

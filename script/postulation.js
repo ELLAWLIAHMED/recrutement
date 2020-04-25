@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var manageMemberTable = $("#manageMemberTable") 
+    var manageMemberTable = $("#manageMemberTable")
     var etab = manageMemberTable.attr("name");
 	var cnc=$('#cnc').text();
     $.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function () {
 		//this.text('validé');
 		//$('#+id+').text('validé');
 		//$(this).text('validé');
-        
+
         $.ajax({
             url: 'controller/PostulationController.php',
             data: {op: 'valide', cin: cin,id:idconcour,etab: etab},
@@ -31,20 +31,20 @@ $(document).ready(function () {
             success: function(data, textStatus, jqXHR) {
                 window.location.reload();
                 remplir(data);
-				
+
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
             }
         });
     });
-     
+
 
         function remplir(data)
         {
         var body = "<tr>";
         data.forEach((e) => {
-           
+
             body    += '<th value='+e.cin+'>'+ e.nomFrancais+'  '+e.prenomFrancais+'</th>';
             body    += '<td value='+e.IdConcour+'>'+ e.type + "</td>";
             body    += "<td>" + e.dateDePostulation+ "</td>";
@@ -53,7 +53,7 @@ if(e.valide== 0 ) {
             body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=profile&profile='+e.cin+'" ><i class="fas fa-id-badge"></i> Profile </a></td>'+
                 '<td><button type="button" class="btn btn-success text-white valider"><i class="fas fa-clipboard-check"></i> Valider</button>'+
                 '</td>';
-}else if(e.valide== 1){
+}else {
 	body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=profile&profile='+e.cin+'" ><i class="fas fa-id-badge"></i> Profile </a></td>'+
                 '<td style="padding-right:30px;"><i class="fas fa-check-circle text-success fa-2x"></i>'+
                 '</td>';

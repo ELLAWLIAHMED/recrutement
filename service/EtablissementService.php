@@ -39,7 +39,12 @@ class EtablissementService implements IDao {
 
       public function findById($id)
   {
-      echo $id;
+    $query = "select * from etablissement where id =?";
+    $req = $this->connexion->getConnexion()->prepare($query);
+    $req->execute(array($id));
+    $res = $req->fetch(PDO::FETCH_OBJ);
+    $etablissement = new Etablissement($res->id, $res->logo, $res->libelleArab, $res->libelleFrancais, $res->abrOrg,$res->ville);
+    return $etablissement;
   }
   public function getEtablissementByName($nom)
   {

@@ -120,7 +120,7 @@ $.ajax({
                         body    += "<th>" + e.dateDebutDepot + "</th>";
                         body    += "<th>" + e.dateFinDepot + "</th>";
                         body    += "<th>" + e.etat+ "</th>";
-                        body    +=     '<td><button class="btn btn-success etat" style="width:50px; margin-right:5px;" id='+e.id+' data-toggle="modal" data-target="#myModal">Etat</button><button  class="btn btn-danger annuler" id='+e.id+'><i class="fas fa-trash-restore-alt"></i></button></td>';
+                        body    +=     `<td><div class='row'><div class='col-sm-6'><button class="btn btn-success etat"  id='+e.id+' data-toggle="modal" data-target="#myModal">Etat</button></div><div class='col-sm-6'><button  class="btn btn-danger annuler" id='+e.id+'><i class="fas fa-trash-restore-alt"></i></button></div></div></td>`;
 
                         body    += "</tr>";
                 });
