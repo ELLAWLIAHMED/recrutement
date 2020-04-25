@@ -76,7 +76,7 @@ $.ajax({
     data: {op: 'etat',cin:cin,id:id},
     type: "POST",
     success: function(data) {
-         $('#result').text('votre postulation est encore d\''+data[0].etat);
+         $('#result').text('Etat De Votre postulation: '+data[0].etat);
     },
     error: function(error) {
         alert('Failed!');

@@ -34,7 +34,7 @@ function remplir(data)
         let body = "<tr>";
         body    += "<td>" + e.nomFrancais + "</td>";
         body    += "<td>" + e.prenomFrancais + "</td>";
-        body    += "<td>" + e.session + "</td>";
+        body    += "<td>" + e.dateDePostulation + "</td>";
         if(e.etat === "Evaluation"){
             body    += "<td><span class=\"label bg-warning text-white\">" + e.etat + "</span></td>";
         }

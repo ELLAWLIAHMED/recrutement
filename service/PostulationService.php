@@ -11,7 +11,7 @@ class PostulationService {
     }
 
     public function create($cin,$id,$etat) {
-        $query = "INSERT INTO postulation VALUES (?,?,CURRENT_DATE(),?,NULL)";
+        $query = "INSERT INTO postulation VALUES (?,?,CURRENT_DATE(),?,0)";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($cin,$id,$etat)) or die('Error');
     }
@@ -53,7 +53,7 @@ class PostulationService {
     }
     public function findForMembre($concours)
     {
-        $query = "select candidat.cin , nomFrancais , prenomFrancais , session , postulation.etat , concours.type , nbrPoste from postulation join candidat on postulation.cin = candidat.cin join concours on postulation.IdConcour = concours.id where postulation.IdConcour =".$concours." and valide = 1";
+        $query = "select candidat.cin , nomFrancais , prenomFrancais , session ,dateDePostulation, postulation.etat , concours.type , nbrPoste from postulation join candidat on postulation.cin = candidat.cin join concours on postulation.IdConcour = concours.id where postulation.IdConcour =".$concours." and valide = 1";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;

@@ -5,7 +5,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'controller/PostulationController.php',
         mimeType: 'json',
-        data: {op: '',etab: etab,cnc : cnc},
+        data: {op: '',cnc : cnc},
         type: "POST",
     success: function(data) {
         remplir(data);

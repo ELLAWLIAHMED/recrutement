@@ -13,7 +13,7 @@ class CommissionService implements IDao {
     }
 
     public function create($o) {
-        $query = "INSERT INTO commission VALUES (NULL,?,?,?)";
+        $query = "INSERT INTO commission VALUES (NULL,?,?,?,now())";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($o->getNom(), $o->getDescription(),$o->getEtablissement())) or die('Error');
     }
@@ -25,14 +25,14 @@ class CommissionService implements IDao {
     }
 
     public function findAll() {
-        $query = "select commission.id , nom , description , libelleFrancais from commission,etablissement where commission.etablissement = etablissement.id";
+        $query = "select commission.id , nom , description , libelleFrancais, dateCreation from commission,etablissement where commission.etablissement = etablissement.id";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
     }
 
     public function findAllSpec($etab) {
-        $query = "select commission.id , nom , description , libelleFrancais from commission,etablissement where commission.etablissement = etablissement.id and ( etablissement.id = '".$etab."' or etablissement.libelleFrancais  = '".$etab."')";
+        $query = "select commission.id , nom , description , libelleFrancais , dateCreation from commission,etablissement where commission.etablissement = etablissement.id and ( etablissement.id = '".$etab."' or etablissement.libelleFrancais  = '".$etab."')";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;

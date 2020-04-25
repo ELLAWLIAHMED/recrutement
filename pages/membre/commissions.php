@@ -27,6 +27,7 @@
                   <tr>
                     <th>nom</th>
                     <th>Description</th>
+                    <th>Date De Création</th>
                     <th style="display: none;"></th>
                   </tr>
                 </thead>

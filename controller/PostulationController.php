@@ -21,7 +21,7 @@ if ($op != '') {
       echo json_encode($ms->findForMembre($concours));
       return ;  
     }elseif ($op == 'valide') {
-        $ms->delete($ms->valide($cin,$id));
+        $ms->valide($cin,$id);
     }elseif ($op == 'findallbycin') {
       header('Content-type: application/json');
       echo json_encode($ms->findBycin($cin));

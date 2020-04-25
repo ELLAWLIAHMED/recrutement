@@ -131,8 +131,7 @@ $(document).on('click', '.modifier', function (event) {
 		});*/
 
 
-             if(nom) {
-				 alert('nom: '+nom+'\n desc: '+description+'\n etab: '+etablissement);
+        if(nom) {
 		//submi the form to server
 		$.ajax({
 			url : "controller/CommissionController.php",
@@ -168,7 +167,6 @@ $(document).on('click', '.modifier', function (event) {
 
     $(document).on('click', '.supprimer', function () {
 	 var id = $(this).attr('name');
-	 alert('id to delete: '+id);
         if(id) {
 			$.ajax({
 				url: 'controller/CommissionController.php',
@@ -176,18 +174,15 @@ $(document).on('click', '.modifier', function (event) {
 				data: {op: 'delete' ,id : id,etab: etab},
 				dataType: 'json',
 				success:function(response) {
-					alert(JSON.stringify(response));
 						$(".removeMessages").html('<div class="alert alert-info alert-dismissible" role="alert">'+
 							  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
 							  '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Commission bien supprimé !!!'+
 							'</div>');
 						// refresh the table
-						remplir(response);
-						// close the modal
-						$("#removeMemberModal").modal('hide');
+						window.location.reload();
+
 				},
 				error: function(response){
-					alert(JSON.stringify(response));
 					alert("Error");
 					$(".removeMessages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
 						  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
@@ -213,7 +208,7 @@ $(document).on('click', '.modifier', function (event) {
 		   var r = {}; r['col'+index]=item; return r;
 		});
 		$('#listTitle').html('Membres de la '+data[0].col0);
-		commission = data[4].col4;
+		commission = data[5].col5;
 		selectedEtab = data[2].col2;
 		// refresh select options :
 		//alert(selectedEtab);
@@ -236,7 +231,6 @@ $(document).on('click', '.modifier', function (event) {
 			alert('Failed!');
 		  }
 		  });
-
 		//now use AJAX with data, which is on the form [ { col1 : value, col2: value ..}]
 		$.ajax({
 			url: 'controller/CMController.php',
@@ -309,6 +303,8 @@ $(document).on('click', '.modifier', function (event) {
             body    += "<td>" + e.nom + "</td>";
 			body    += "<td>" + e.description + "</td>";
 			body    += "<td>" + e.libelleFrancais + "</td>";
+			body    += "<td>" + e.dateCreation + "</td>";
+
             body    += '<td><div class="dropdown mb-4">'+
                    '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
                       'Option'+

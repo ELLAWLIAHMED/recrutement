@@ -25,7 +25,8 @@ $(document).ready(function () {
 		   var r = {}; r['col'+index]=item; return r;
         });
 		$('#listTitle').html('Membres de la '+data[0].col0);
-		commission = data[2].col2;
+		commission = data[3].col3;
+		alert(commission);
 
 		//now use AJAX with data, which is on the form [ { col1 : value, col2: value ..}]
 		$.ajax({
@@ -54,6 +55,7 @@ $(document).ready(function () {
             data.forEach((e) => {
             body    += "<td>" + e.nom + "</td>";
 			body    += "<td>" + e.description + "</td>";
+			body    += "<td>" + e.dateCreation + "</td>";
 			body    += "<td style=\"display: none;\">" + e.id + "</td>";
             body    += "</tr>";
 		});

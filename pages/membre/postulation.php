@@ -11,7 +11,7 @@
       <thead class=" text-center bg-info text-white">
         <th>NOM</th>
         <th>PRENOM</th>
-        <th>SESSION</th>
+        <th>DATE POSTULATION</th>
         <th>ETAT</th>
         <th>NBR POSTE</th>
         <th>PROFILE</th>
