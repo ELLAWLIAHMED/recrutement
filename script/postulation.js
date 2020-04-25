@@ -1,10 +1,11 @@
 $(document).ready(function () {
     var manageMemberTable = $("#manageMemberTable") 
     var etab = manageMemberTable.attr("name");
+	var cnc=$('#cnc').text();
     $.ajax({
         url: 'controller/PostulationController.php',
         mimeType: 'json',
-        data: {op: '',etab: etab},
+        data: {op: '',etab: etab,cnc : cnc},
         type: "POST",
     success: function(data) {
         remplir(data);
@@ -18,7 +19,10 @@ $(document).ready(function () {
 
         let cin=$(this).closest('tr').find('th').attr('value');
         var idconcour=$(this).closest('tr').find('td').eq(0).attr('value');
-      
+		var id=$(this).id;
+		//this.text('validé');
+		//$('#+id+').text('validé');
+		//$(this).text('validé');
         
         $.ajax({
             url: 'controller/PostulationController.php',
@@ -27,6 +31,7 @@ $(document).ready(function () {
             success: function(data, textStatus, jqXHR) {
                 window.location.reload();
                 remplir(data);
+				
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
@@ -44,9 +49,15 @@ $(document).ready(function () {
             body    += '<td value='+e.IdConcour+'>'+ e.type + "</td>";
             body    += "<td>" + e.dateDePostulation+ "</td>";
             body    += "<td>" + e.etat + "</td>";
+if(e.valide== 0 ) {
             body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=profile&profile='+e.cin+'" ><i class="fas fa-id-badge"></i> Profile </a></td>'+
-                '<td><button type="button" class="btn btn-success text-white valider" ><i class="fas fa-clipboard-check"></i> Valider</button>'+
+                '<td><button type="button" class="btn btn-success text-white valider"><i class="fas fa-clipboard-check"></i> Valider</button>'+
                 '</td>';
+}else if(e.valide== 1){
+	body    += '<td><a type="button" class="btn btn-info text-white" href="home.php?p=profile&profile='+e.cin+'" ><i class="fas fa-id-badge"></i> Profile </a></td>'+
+                '<td style="padding-right:30px;"><i class="fas fa-check-circle text-success fa-2x"></i>'+
+                '</td>';
+}
             body    += "</tr>";
         });
                     /*DataTables instantiation.*/

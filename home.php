@@ -88,11 +88,6 @@ if ($_SESSION["utilisateur"]) {
 
       <?php } ?>
       
-        <li class="nav-item">
-        <a class="nav-link" href="home.php?p=postulation">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Postulations</span></a>
-      </li>
       
       <li class="nav-item">
         <a class="nav-link" href="home.php?p=commission">
@@ -419,10 +414,10 @@ if ($_SESSION["utilisateur"]) {
               </div>
               </a>
             </div>
-			<!--
+			<?php if($_SESSION['role'] == "admin") {   ?>
 			<div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
-              <a href="home.php?p=postulation">
+              <a href="home.php?p=concours">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -439,7 +434,7 @@ if ($_SESSION["utilisateur"]) {
               </div>
               </a>
             </div>
-			-->
+			<?php } ?>
           </div>
 
 

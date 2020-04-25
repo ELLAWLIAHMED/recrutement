@@ -17,6 +17,6 @@ $(document).ready(function() {
     getCountFrom('controller/MembreController.php', 1);
     getCountFrom('controller/EtablissementController.php', 2);
     getCountFrom('controller/ConcourController.php', 3);
-    
+    getCountFrom('controller/PostulationController.php', 4);
     });
 

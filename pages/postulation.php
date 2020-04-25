@@ -22,7 +22,8 @@
               } ?>
               </div>
               <br /> <br />
-
+				<p style='display:none'; id="cnc"><?php if(isset($_GET['concour'])) echo $_GET['concour'];?></p>
+					
               <table class="table table-striped " id="manageMemberTable" name="<?php if($_SESSION['role'] == "admin" && isset($_SESSION['etablissement']))
               {
                 echo $_SESSION['etablissement'];

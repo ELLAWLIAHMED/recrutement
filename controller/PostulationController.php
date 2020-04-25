@@ -35,5 +35,5 @@ if ($op != '') {
     }
 }else {
   header('Content-type: application/json');
-  echo json_encode($ms->findAll());
+  echo json_encode($ms->findAll($cnc));
 }

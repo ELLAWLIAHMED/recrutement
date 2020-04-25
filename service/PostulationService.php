@@ -22,14 +22,14 @@ class PostulationService {
         $req->execute(array($cin,$id)) or die("erreur delete");
     }
      public function valide($cin,$id) {
-        $query = "UPDATE postulation SET valide ='1' ,etat='Evaluation' WHERE cin = ? and IdConcour =?";
+        $query = "UPDATE postulation SET valide ='1' WHERE cin = ? and IdConcour =?";
         //$query="UPDATE `postulation` SET `etat` = 'Evaluation', `valide` = '1' WHERE `postulation`.`cin` = ? AND `postulation`.`IdConcour` = ?";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($cin,$id)) or die("erreur valide");
     }
 
-    public function findAll() {
-        $query = "select postulation.cin,candidat.nomFrancais,candidat.prenomFrancais,IdConcour,dateDePostulation,postulation.etat,valide,concours.type from postulation,candidat,concours where candidat.cin=postulation.cin and postulation.IdConcour=concours.id";
+    public function findAll($cnc) {
+        $query = "select postulation.cin,candidat.nomFrancais,candidat.prenomFrancais,IdConcour,dateDePostulation,postulation.etat,valide,concours.type from postulation,candidat,concours where candidat.cin=postulation.cin and postulation.IdConcour=concours.id and concours.id=".$cnc."";
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;

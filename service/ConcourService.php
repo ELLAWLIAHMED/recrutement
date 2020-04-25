@@ -60,7 +60,7 @@ class ConcourService implements IDao {
         $query = "select concours.id,session,dateDebutDepot,dateFinDepot,etat,nbrPoste,type,libelleFrancais, commission.nom as commission from concours join etablissement
             on concours.etablissement = etablissement.id left join commission
             on concours.commission =commission.id
-            where etablissement =".$etab;
+            where concours.etablissement =".$etab;
         $req = $this->connexion->getConnexion()->query($query);
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
