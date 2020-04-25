@@ -320,7 +320,7 @@ $(document).ready(function () {
       {
       var body = "<tr>";
       data.forEach((e) => {
-          body    += '<td><img src="img/'+ e.photo + '" class="rounded img-responsive"/ width="60" height="50"></td>';
+          body    += '<td><img src="img/candidats/'+ e.photo + '" class="rounded img-responsive"/ width="60" height="50"></td>';
           body    += "<th>" + e.cin + "</th>";
           body    += "<td>"+e.nomFrancais+"</td>";
           body    += "<td>" + e.prenomFrancais + "</td>";
@@ -349,8 +349,8 @@ $(document).ready(function () {
           language: {
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
         }});
-    
-                  
+
+
 
       }
 

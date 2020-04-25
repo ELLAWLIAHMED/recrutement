@@ -27,11 +27,14 @@ session_start();
 					include_once 'service/CandidatService.php';
 					include_once 'beans/Membre.php';
 					include_once 'service/MembreService.php';
+          include_once 'beans/Etablissement.php';
+          include_once 'service/EtablissementService.php';
 
 					$us = new UtilisateurService();
 					$as = new AdminService();
 					$cs = new CandidatService();
 					$ms = new MembreService();
+          $et = new EtablissementService();
                     $id = $us->findByEmail($_POST['email']);
 
                     $password = $_POST['password'];
@@ -54,6 +57,8 @@ session_start();
                             		$_SESSION['role'] = $utilisateur->getRole();
 									$_SESSION['email'] = $utilisateur->getEmail();
 									$_SESSION['etablissement'] = $admin->getEtablissement();
+                  $Etablissement=$et->findById($admin->getEtablissement());
+                  $_SESSION['abrEtab']=$Etablissement->getAbr();
 									header('Location:./home.php');
 								}
 								elseif($utilisateur->getRole() === 'candidat')

@@ -9,7 +9,7 @@
 									<th>Nombre de postes</th>
 									<th>Date fin dépôt</th>
 									<th>Etat</th>
-									<th>Action</th>
+									<th colspan=2>Action</th>
 								</tr>
 							</thead>
 							<tbody id='postulation'>
@@ -39,6 +39,8 @@
 											<option value="2020-05-15">Session 15 May 2020</option>
 
                       <option value="2020-05-30">Session 30 May 2020</option>
+											
+											<option value="2020-06-15">Session 15 Juin 2020</option>
 										</select>
 									</div>
 
@@ -54,7 +56,6 @@
               									<th>Etablissement</th>
               									<th>Date début dépôt</th>
               									<th>Date fin dépôt</th>
-
               									<th>Etat</th>
               									<th>Action</th>
               								</tr>

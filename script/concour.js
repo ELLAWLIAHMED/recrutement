@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
-	alert(etab);
+	//alert(etab);
 	//alert(etablissement);
 	$.ajax({
         url: 'controller/ConcourController.php',

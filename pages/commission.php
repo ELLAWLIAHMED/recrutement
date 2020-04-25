@@ -4,7 +4,7 @@
           <div class="row">
             <div class="col-md-12">
 
-              <center><h1 class="page-header" style="font-family: Suez One; ">E-recrutement( back office) <small style="font-family: Chalkduster;">gestion</small> </h1> </center>
+              <center><h1 class="page-header" style="font-family: Arial; ">Gestion des Commissions</h1> </center>
               <br>
               <div class="removeMessages">
 		<?php if(isset($_GET['query'])){
@@ -125,4 +125,3 @@
 
         <script src="script/commission.js" type="text/javascript"></script>
           <script src="vendor/bootstrap/js/popper.min.js" type="text/javascript"></script>
-
