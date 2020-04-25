@@ -1,12 +1,11 @@
 $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
-  //alert(etab);
-	var etablissement=$('#ETABLISSEMENTID').text();
+	alert(etab);
 	//alert(etablissement);
 	$.ajax({
         url: 'controller/ConcourController.php',
         mimeType: 'json',
-        data: {op: '',etab: etablissement},
+        data: {op: '',etab: etab},
         type: "POST",
     success: function(data) {
         remplir(data);
@@ -384,10 +383,7 @@ $(document).on('click', '.postule', function() {
             body    += "<td>" + e.etat + "</td>";
             body    += "<td>" + e.nbrPoste + "</td>";
             body    += "<td>" + e.type + "</td>";
-						if ($('#ETABLISSEMENTID').text()=='') {
-							body    += "<td>" + e.libelleFrancais + "</td>";
-						}
-
+			body    += "<td>" + e.libelleFrancais + "</td>";
 			body    += "<td>" + e.commission + "</td>";
             body    +=     '<td><div class="dropdown mb-4">'+
                    '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
