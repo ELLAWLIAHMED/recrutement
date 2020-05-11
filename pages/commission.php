@@ -54,7 +54,7 @@
                 }else echo "";?>">
                 <thead>
                   <tr>
-                    <th>nom</th>
+                    <th>Nom</th>
                     <th>Description</th>
                     <th>Etablissement</th>
                     <th>Date De Création</th>

@@ -9,11 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Register</title>
+  <title>Inscription</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -32,21 +31,21 @@
           <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Page d'inscription</h1>
               </div>
               <form class="user" action="login.php" id='register'>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="FirstName" name='FirstName' placeholder="First Name" required>
+                    <input type="text" class="form-control form-control-user" id="FirstName" name='FirstName' placeholder="Prénom" required>
                   </div>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="LastName" name="LastName" placeholder="Last Name" required>
+                    <input type="text" class="form-control form-control-user" id="LastName" name="LastName" placeholder="Nom" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6">
-                    <input type="email" class="form-control form-control-user" id="Email" placeholder="Email Address" required>
+                    <input type="email" class="form-control form-control-user" id="Email" placeholder="Adresse email" required>
                   </div>
                   <div class='col-sm-6'>
                   <input type="text" class="form-control form-control-user" id="CIN" placeholder="CIN" required>
@@ -54,16 +53,16 @@
               </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="Password1" placeholder="Password" required>
+                    <input type="password" class="form-control form-control-user" id="Password1" placeholder="Mot de Passe" required>
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="Password" placeholder="Repeat Password" required>
+                    <input type="password" class="form-control form-control-user" id="Password" placeholder="Répeter le mote de passe" required>
                   </div>
 
                 </div>
                  <div class="text-center">
                    <button class="btn btn-primary btn-user btn-bloc col-sm-6" type="submit" id='btn'>
-                     Register Account
+                     <b>Inscription</b>
                    </button>
                  </div>
                </form>
@@ -71,10 +70,10 @@
 
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                <a class="small" href="forgot-password.html">Mot de passe oublié?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
+                <a class="small" href="login.html">Dèja inscrit? connectez-vous</a>
               </div>
             </div>
           </div>

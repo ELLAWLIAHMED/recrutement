@@ -1,3 +1,24 @@
+<?php
+error_reporting( ~E_NOTICE ); // avoid notice
+//include_once 'connexion/Connexion.php';
+
+if(isset($_POST['submitbtn']))
+{
+
+$imgFile = $_FILES['photo']['name'];
+$tmp_dir = $_FILES['photo']['tmp_name'];
+
+
+  $upload_dir = 'img/membre/'; // upload directory
+  $imgExt   = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); //image extension !!
+  // rename uploading image
+  $userpic = $_POST['cin'].".".$imgExt;
+
+  // allow valid image file formats
+
+    move_uploaded_file($tmp_dir,$upload_dir.$userpic);
+  }
+  ?>
         <!-- page content -->
         <div class="table_container">
           <div class="row">
@@ -33,11 +54,11 @@
                 }else echo "";?>">
                 <thead>
                   <tr>
-                    <th>photo</th>
+                    <th>Photo</th>
                     <th>Cin</th>
                     <th>Nom</th>
                     <th>Prenom</th>
-                    <th>email</th>
+                    <th>Email</th>
                     <th>Telephone</th>
                     <th>Adresse</th>
                     <th>Fonction</th>
@@ -64,10 +85,12 @@
 
               <div class="modal-body">
                 <div class="messages"></div>
+               <div class='row'>
+                 <div class="col-sm-6">
 
                <div class="form-group" id='cinfield'> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-5 control-label">Cin</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <input type="text" class="form-control" id="cin" name="cin" placeholder="cin" required>
               <!-- here the text will apper  -->
 				<div id="cinError"></div>
@@ -76,7 +99,7 @@
 
                <div class="form-group"> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-5 control-label">Nom</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <input type="text" class="form-control" id="nomfrancais" name="nomfrancais" placeholder="nom francais" required>
               <!-- here the text will apper  -->
 				<div id="nomfrancaisError"></div>
@@ -85,7 +108,7 @@
 
                <div class="form-group"> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-2 control-label">Prenom</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <input type="text" class="form-control" id="prenomfrancais" name="prenomfrancais" placeholder="prenom francais" required>
               <!-- here the text will apper  -->
 				<div id="prenomfrancaisError"></div>
@@ -94,7 +117,7 @@
 
               <div class="form-group"> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <input type="text" class="form-control" id="email" name="email" placeholder="email" required>
               <!-- here the text will apper  -->
 				<div id="emailError"></div>
@@ -104,16 +127,18 @@
 
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
                 <label for="name" class="col-sm-2 control-label">Telephone</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <input type="number" class="form-control" id="telephone" name="telephone" placeholder="telephone" required>
               <!-- here the text will apper  -->
 				<div id="telephoneError"></div>
                 </div>
               </div>
+                 </div>
+                 <div class="col-sm-6">
 
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Adresse</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" required>
                 <div id="adresseError"></div>
 				<!-- here the text will apper  -->
@@ -122,7 +147,7 @@
 
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Fonction</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction" required>
                 <div id="fonctionError"></div>
 				<!-- here the text will apper  -->
@@ -130,7 +155,7 @@
                 </div>
 		<div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Photo</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <input type="file" class="form-control" id="photo" name="photo" placeholder="Photo" required>
                 <div id="photoError"></div>
 				<!-- here the text will apper  -->
@@ -139,7 +164,7 @@
 
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Grade</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <input type="text" class="form-control" id="grade" name="grade" placeholder="Grade" required>
                 <div id="gradeError"></div>
 				<!-- here the text will apper  -->
@@ -148,7 +173,7 @@
       <?php if($_SESSION['role'] == 'super-admin'){ ?>
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Etablissement</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <select id="etablissement" name="etablissement" class="form-control" required></select>
                 <div id="etablissementError"></div>
 				<!-- here the text will apper  -->
@@ -158,18 +183,20 @@
 
                 <div class="form-group"> <!--/here teh addclass has-error will appear -->
 		 <label for="name" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 <div id="passwordError"></div>
 				<!-- here the text will apper  -->
                     </div>
                 </div>
+                </div>
+              </div>
 
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button id='submitbtn' class="btn btn-primary">Sauvgarder</button>
+                <button id='submitbtn' name='submitbtn' class="btn btn-primary">Sauvgarder</button>
               </div>
               </form>
             </div><!-- /.modal-content -->

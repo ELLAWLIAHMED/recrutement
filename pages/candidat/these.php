@@ -62,7 +62,7 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
                 }
       } ?></div>
       <br><hr>
-      <h3>Mes Thèses</h3>
+      <h3 style='font-family:arial;'>Mes Thèses</h3>
       <hr><br>
 
       <button class="btn btn-primary pull pull-left" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
@@ -75,12 +75,12 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
         <thead>
           <tr>
             <th style='display:none;'>Id</th>
-            <th>type de thèse</th>
-            <th>date</th>
-            <th>centre de recherche</th>
-            <th>fichier</th>
+            <th>Type de thèse</th>
+            <th>Date</th>
+            <th>Centre de recherche</th>
+            <th>Fichier</th>
             <th>Jury</th>
-            <th>options</th>
+            <th>Options</th>
           </tr>
         </thead>
             <tbody id='bodythese'></tbody>

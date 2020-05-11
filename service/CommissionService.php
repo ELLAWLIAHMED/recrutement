@@ -1,8 +1,8 @@
 <?php
 
 include_once 'beans/Commission.php';
-include_once 'Connexion/Connexion.php';
 include_once 'dao/IDao.php';
+include_once 'Connexion/Connexion.php';
 
 class CommissionService implements IDao {
 
@@ -45,7 +45,14 @@ class CommissionService implements IDao {
         $req->execute(array($o->getNom(), $o->getDescription(),$o->getEtablissement(),$o->getId())) or die('Error update');
     }
 
-
+    public function countMembers($idEtab)
+    {
+        $query = "select count(*) as nombre,commission.nom from comitemembres inner join commission on commission.id=comitemembres.idCommission where idCommission in ( select id from commission where etablissement = ?) group by idCommission";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($idEtab));
+        $f = $req->fetchAll(PDO::FETCH_OBJ);
+        return $f;
+    }
     public function getByMember($membre)
     {
         $query = "select * from commission join comiteMembres on commission.id = comiteMembres.idCommission where idMembre = '".$membre."'";
@@ -80,6 +87,7 @@ class CommissionService implements IDao {
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
     }
+  
 
 
   }

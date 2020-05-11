@@ -2,7 +2,7 @@
 chdir('..');
 include_once 'service/PostulationService.php';
 extract($_POST);
-
+//tes
 $ms = new PostulationService();
 //em
 if ($op != '') {
@@ -14,12 +14,12 @@ if ($op != '') {
       $ms->acceptePostulation($cin,$concours);
       header('Content-type: application/json');
       echo json_encode($ms->findForMembre($concours));
-      return ;  
+      return ;
     }elseif ($op == 'refuserPostulation') {
       $ms->refuserPostulation($cin,$concours);
       header('Content-type: application/json');
       echo json_encode($ms->findForMembre($concours));
-      return ;  
+      return ;
     }elseif ($op == 'valide') {
         $ms->valide($cin,$id);
     }elseif ($op == 'findallbycin') {

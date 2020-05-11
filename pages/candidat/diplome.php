@@ -60,7 +60,7 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
   <div class="row">
     <div class="col-md-12">
 
-      <center><h1 class="page-header" style="font-family: Suez One; ">Gestion des diplomes </h1> </center>
+      <br>
       <br>
       <div class="removeMessages">
 <?php if(isset($_GET['query'])){

@@ -116,7 +116,7 @@ $tmp_dir = $_FILES['newpic']['tmp_name'];
         <td id='candidatnomar'></td>
       </tr>
       <tr>
-        <th class='table-primary'>الاسم العائلي</th>
+        <th class='table-primary'>الاسم الشخصي</th>
         <td id='candidatprenomar'></td>
       </tr>
       <tr>
@@ -144,7 +144,7 @@ $tmp_dir = $_FILES['newpic']['tmp_name'];
       <td id='candidatadresse'></td>
     </tr>
     <tr>
-      <th class='table-primary'>fonctionnaire</th>
+      <th class='table-primary'>Fonctionnaire</th>
       <td id='candidatfonction'></td>
     </tr>
     <tr>

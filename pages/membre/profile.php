@@ -270,6 +270,7 @@
                             </div>
                             </div>
                          </div>
+
                          <div class="col-md-2">
                             <div class="card mb-2 shadow-sm">
                                 <img src="https://st2.depositphotos.com/5266903/8981/v/950/depositphotos_89816802-stock-illustration-certified-diploma-rounded-vector-icon.jpg"
@@ -286,10 +287,11 @@
                             </div>
                             </div>
                          </div>
-                         <div class="col-md-2">
+
+                         <div class="col-sm-2">
                             <div class="card mb-2 shadow-sm">
-                                <img src="https://www.seekpng.com/png/detail/196-1969817_lighthouse-experience-icon-experience-icon.png"
-                                alt=""width="90%" height="70" style='margin:25px 0px'>
+                              <img src="https://cdn2.iconfinder.com/data/icons/seo-web-optimization-ultimate-part1/512/award-512.png"
+                              alt="" width="90%" height="70">
                                 <div class="card-body">
                                     <p class="card-text" style="font-size: small">EXPERIENCES</p>
                                 <div class="d-flex justify-content-between align-items-center">

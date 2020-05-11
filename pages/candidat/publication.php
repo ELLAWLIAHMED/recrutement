@@ -74,11 +74,11 @@ $tmp_dir = $_FILES['fichierpublication']['tmp_name'];
         <thead>
           <tr>
             <th style="display:none;">Id</th>
-            <th>url</th>
-            <th>titre</th>
-            <th>date</th>
-            <th>type</th>
-            <th>fichier</th>
+            <th>Url</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Fichier</th>
             <th>options</th>
           </tr>
         </thead>

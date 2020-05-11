@@ -3,7 +3,7 @@
         <div class="table_container">
           <div class="row">
             <div class="col-md-12">
-              <h2 class=" text-center  text-uppercase font-weight-bold" >VOS COMMISSIONS</h2>
+              <h2 class=" text-center  text-uppercase font-weight-bold" style='font-family:arial;' >VOS COMMISSIONS</h2>
               <br>
               <div class="removeMessages"></div>
 
@@ -40,7 +40,3 @@
 
         <script src="script/membre/commission.js" type="text/javascript"></script>
           <script src="vendor/bootstrap/js/popper.min.js" type="text/javascript"></script>
-
-
-
-          

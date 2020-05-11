@@ -136,7 +136,7 @@ session_start();
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('img/bgTest.jpeg');">
+		<div class="container-login100" style="background-image: url('img/universite.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41" style='font-family:Arial'>
 					Authentification
@@ -160,12 +160,12 @@ session_start();
 		</div>
 
 					<div class="wrap-input100" data-validate = "Enter username">
-						<input class="input100" type="text" name="email" placeholder="User name">
+						<input class="input100" type="text" name="email" placeholder="User name" style='font-family:arial;'>
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Password" style='font-family:arial;'>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 

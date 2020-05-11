@@ -1,4 +1,4 @@
-<h2>Mes Postulations :</h2><br>
+<h2 style='font-family:arial;'>Mes Postulations :</h2><br>
 <p id='cin' style='display:none;'><?php echo $_SESSION['utilisateur'] ?></p>
 <div class="table-responsive">
 						<table class="table table-striped table-bordered table-hover">
@@ -39,7 +39,7 @@
 											<option value="2020-05-15">Session 15 May 2020</option>
 
                       <option value="2020-05-30">Session 30 May 2020</option>
-											
+
 											<option value="2020-06-15">Session 15 Juin 2020</option>
 										</select>
 									</div>

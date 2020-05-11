@@ -5,7 +5,7 @@
   @font-face {font-family: "bebas";src: url("fonts/BebasNeue-Bold.ttf");}
 </style>
 <div class="container">
-<h2 class="text-primary" >Vos Concours:</h2>
+<h2 class="text-primary" style='font-family:arial' >Vos Concours:</h2>
   <br><br>
     <p id='ETABLISSEMENTID' style='display:none'><?php echo $_SESSION['etablissement']; ?></p>
      <div class="table-responsive">

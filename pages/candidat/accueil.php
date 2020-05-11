@@ -62,7 +62,7 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><h2>Mes Theses et Publications</h2></div>
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><h2>Thèse et Publication</h2></div>
               <div class="h5 mb-0 font-weight-bold text-gray-800" id='nombrethese'>...</div>
             </div>
             <div class="col-auto">
@@ -85,7 +85,7 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><h2>Mes Experiences Pédagogiques</h2></div>
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><h2>Mes Expériences Pédagogiques</h2></div>
               <div class="h5 mb-0 font-weight-bold text-gray-800" id='nombrepublication'>...</div>
             </div>
             <div class="col-auto">
@@ -99,5 +99,6 @@
 
   </div>
 </div>
+<br><br>
 <script src="script/candidat/accueil.js" type="text/javascript"></script>
   <script src="vendor/bootstrap/js/popper.min.js" type="text/javascript"></script>

@@ -55,15 +55,15 @@ $(document).ready(function () {
         });
         $( "#manageMemberTable tbody" ).html("");
         $( "#manageMemberTable tbody" ).html(body);
-        //$( "#manageMemberTable" ).DataTable({
-        //scrollX: true,
-        //language: {
-          //  "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-        //}});
+        $( "#manageMemberTable" ).DataTable({
+        scrollX: true,
+        language: {
+           "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+        }});
 
     }else{
         $( "#manageMemberTable tbody" ).html('<td colspan=6><div class="alert alert-success">Aucun Concours Trouée !</div></td>');
-    }    
+    }
 
   }
 

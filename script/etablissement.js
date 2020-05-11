@@ -88,8 +88,8 @@ $(document).on('click', '.modifier', function () {
                     var libelleArabe = $("#libelleArabe").val();
                     var abreviation = $("#abreviation").val();
                     var ville = $("#ville").val();
-                    var photo = $("#photo").val();
-
+                    //var photo = $("#photo").val();
+                    var photo=libelleFrancais+'.'+$('#photo').val().split('.')[1];
 
 			// validation
 			$("#libelleFrancais").blur(function(){
@@ -222,7 +222,7 @@ $(document).on('click', '.modifier', function () {
         {
         var body = "<tr>";
         data.forEach((e) => {
-            body    += '<td><img src="img/'+e.logo+'" class="rounded img-responsive" width="60" height="50"></td>';
+            body    += '<td><img src="img/etablissement/'+e.logo+'" class="rounded img-responsive" width="60" height="50"></td>';
             body    += "<td>" + e.libelleArab + "</td>";
             body    += "<td>" + e.libelleFrancais + "</td>";
             body    += "<td>" + e.abrOrg + "</td>";

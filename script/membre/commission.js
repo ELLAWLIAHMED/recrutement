@@ -26,7 +26,7 @@ $(document).ready(function () {
         });
 		$('#listTitle').html('Membres de la '+data[0].col0);
 		commission = data[3].col3;
-		alert(commission);
+		//alert(commission);
 
 		//now use AJAX with data, which is on the form [ { col1 : value, col2: value ..}]
 		$.ajax({

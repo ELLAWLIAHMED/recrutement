@@ -2,6 +2,7 @@
 
 include_once 'beans/Membre.php';
 include_once 'dao/IDao.php';
+include_once 'Connexion/Connexion.php';
 
 class MembreService implements IDao {
 
@@ -33,7 +34,7 @@ class MembreService implements IDao {
         return $f;
     }
 
-  
+
     public function findAllSpec($etab) {
         $query = 'select cin ,nom,prenom,email,telephone,adresse,fonction,photo,grade,libelleFrancais,etablissement from membre , etablissement where membre.etablissement = etablissement.id and (membre.etablissement = "'.$etab.'" or etablissement.libelleFrancais = "'.$etab.'")';
         $req = $this->connexion->getConnexion()->query($query);
@@ -62,6 +63,14 @@ class MembreService implements IDao {
         $res = $req->fetch(PDO::FETCH_OBJ);
         $membre = new Membre($res->cin, $res->nom, $res->prenom,$res->email,$res->telephone,$res->adresse,$res->fonction, $res->photo,$res->grade, $res->etablissement,$res->password);
         return $membre;
+    }
+    public function getAllMembersByCommission($name)
+    {
+        $query = "select nom,prenom,fonction from membre where cin in (select idMembre from comitemembres where idCommission in (select id from commission where nom=?))";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($name));
+        $f = $req->fetchAll(PDO::FETCH_OBJ);
+        return $f;
     }
 }
 ?>

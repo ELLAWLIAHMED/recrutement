@@ -30,7 +30,7 @@
       <table class="table table-striped " id="manageMemberTable" >
         <thead>
           <tr>
-          <th>photo</th>
+            <th>Photo</th>
             <th>Cin</th>
             <th>NomFr</th>
             <th>PrenomFr</th>

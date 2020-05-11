@@ -75,7 +75,7 @@ $(document).on('click', '.modifier', function () {
     var titre = $("#titrepublication").val();
     var type= $('#typepublication').val();
     var fichier =cin+date+"."+$('#fichierpublication').val().split('.')[1];
-    alert(url+date+titre+type+fichier);
+    alert(fichier);
     //alert(type+date+centre+fichier);
 $.ajax({
 url : "controller/PublicationController.php",

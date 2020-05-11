@@ -2,6 +2,7 @@
 
 include_once 'beans/Experience.php';
 include_once 'dao/IDao.php';
+include_once 'Connexion/Connexion.php';
 
 class ExperienceService implements IDao {
 

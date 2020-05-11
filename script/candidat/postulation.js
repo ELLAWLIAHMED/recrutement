@@ -35,7 +35,7 @@ $(document).on('click', '.annuler', function () {
       data: {op:'delete',cin:cin,id:id},
       type: "POST",
   });
-  alert('good');
+  //alert('good');
   location.reload();
 });
 
@@ -88,6 +88,7 @@ $.ajax({
 
         function remplir(data)
         {
+          //console.log(data);
           if(data.length>0){
         var body = "<tr>";
         data.forEach((e) => {
@@ -96,8 +97,7 @@ $.ajax({
             body    += "<th>" + e.dateDebutDepot + "</th>";
             body    += "<th>" + e.dateFinDepot + "</th>";
             body    += "<th>" + e.etat+ "</th>";
-
-            body    +=     '<td><button class="btn btn-success postuler" id='+e.id+'>Postuler</button></td>';
+            body    +=     '<td><button class="btn btn-success postuler" id="'+e.id+'">Postuler</button></td>';
             body    += "</tr>";
 		});
 		$("#manageMemberTable").DataTable();
@@ -120,7 +120,7 @@ $.ajax({
                         body    += "<th>" + e.dateDebutDepot + "</th>";
                         body    += "<th>" + e.dateFinDepot + "</th>";
                         body    += "<th>" + e.etat+ "</th>";
-                        body    +=     `<td><div class='row'><div class='col-sm-6'><button class="btn btn-success etat"  id='+e.id+' data-toggle="modal" data-target="#myModal">Etat</button></div><div class='col-sm-6'><button  class="btn btn-danger annuler" id='+e.id+'><i class="fas fa-trash-restore-alt"></i></button></div></div></td>`;
+                        body    +=     `<td><div class='row'><div class='col-sm-6'><button class="btn btn-success etat"  id='${e.id}' data-toggle="modal" data-target="#myModal">Etat</button></div><div class='col-sm-6'><button  class="btn btn-danger annuler" id="${e.id}"><i class="fas fa-trash-restore-alt"></i></button></div></div></td>`;
 
                         body    += "</tr>";
                 });

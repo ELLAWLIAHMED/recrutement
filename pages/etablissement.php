@@ -1,3 +1,24 @@
+<?php
+error_reporting( ~E_NOTICE ); // avoid notice
+//include_once 'connexion/Connexion.php';
+
+if(isset($_POST['submitbtn']))
+{
+
+$imgFile = $_FILES['photo']['name'];
+$tmp_dir = $_FILES['photo']['tmp_name'];
+
+
+  $upload_dir = 'img/etablissement/'; // upload directory
+  $imgExt   = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); //image extension !!
+  // rename uploading image
+  $userpic = $_POST['libelleFrancais'].".".$imgExt;
+
+  // allow valid image file formats
+
+    move_uploaded_file($tmp_dir,$upload_dir.$userpic);
+  }
+  ?>
         <!-- page content -->
         <div class="table_container">
           <div class="row">
@@ -101,7 +122,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button class="btn btn-primary ajouter">Sauvgarder</button>
+                <button class="btn btn-primary ajouter" name='submitbtn'>Sauvgarder</button>
               </div>
               </form>
 

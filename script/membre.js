@@ -68,12 +68,12 @@ error: function(error) {
                     var telephone = $("#telephone").val();
                     var adresse = $("#adresse").val();
                     var fonction = $("#fonction").val();
-                    var photo = $("#photo").val();
+                    //var photo = $("#photo").val();
                     var grade = $("#grade").val();
                     var etablissement = $("#etablissement").val();
                     var password = $("#password").val();
-
-
+                    var photo=cin+'.'+$('#photo').val().split('.')[1];
+                    alert(photo);
 
 			// validation
 			$("#cin").blur(function(){
@@ -349,7 +349,7 @@ error: function(error) {
           language: {
               "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
           }});
-  
+
         }
 
     });

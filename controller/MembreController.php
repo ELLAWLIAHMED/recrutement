@@ -13,6 +13,10 @@ if ($op != '') {
         $ms->update(new Membre($cin, $nomfr, $prenomfr,$email,$telephone, $adresse, $fonction,$photo, $grade, $etablissement,$password));
     } elseif ($op == 'delete') {
         $ms->delete($ms->delete($cin));
+    }elseif ($op =='finByCommission'){
+      header('Content-type: application/json');
+      echo json_encode($ms->getAllMembersByCommission($name));
+      return;
     }
 }
 

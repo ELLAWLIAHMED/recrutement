@@ -39,7 +39,9 @@
                     <th>État</th>
                     <th>nbr Poste</th>
                     <th>Type</th>
-                    <th>Établissement</th>
+                    <?php if ($_SESSION['role']=='super-admin') {
+                        echo '<th>Établissement</th>';
+                    } ?>
                     <th>Commission</th>
                     <th>Option</th>
                     <th>Postulation</th>
@@ -47,8 +49,36 @@
                 </thead>
                     <tbody></tbody>
               </table>
+              <div id="showcommission" class="modal fade" role="dialog">
+              <div class="modal-dialog">
 
+              <!-- Modal content-->
+              <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title" id='header-title'></h4>
+              </div>
+              <div class="modal-body">
+                <table class='table table-hover'>
+                  <thead class='table-info'>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                      <th>fonction</th>
+                    </tr>
+                  </thead>
+                <tbody id='listemembres'>
 
+                </tbody>
+
+                </table>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
+              </div>
+              </div>
+              </div>
+              </div>
+         <p style='display:none' id='myrole'><?php echo $_SESSION['role'] ?></p>
 
          <div class="modal fade" tabindex="-1" role="dialog" id="addMember">
           <div class="modal-dialog" role="document">

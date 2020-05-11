@@ -40,7 +40,7 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
   <div class="row">
     <div class="col-md-12">
 
-      <center><h1 class="page-header" style="font-family: Suez One; ">Gestion des Experiences Pédagogiques </h1> </center>
+      <center><h1 class="page-header" style='font-family:arial;' >Gestion des Experiences Pédagogiques </h1> </center>
       <br>
       <div class="removeMessages">
 <?php if(isset($_GET['query'])){
@@ -68,11 +68,11 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
         <thead>
           <tr>
             <th style="display:none;">Id</th>
-            <th>type d'enseignement</th>
-            <th>titre de formation</th>
-            <th>etablissement</th>
-            <th>attestation</th>
-            <th>options</th>
+            <th>Type d'enseignement</th>
+            <th>Titre de formation</th>
+            <th>Etablissement</th>
+            <th>Attestation</th>
+            <th>Options</th>
           </tr>
         </thead>
             <tbody></tbody>
@@ -101,7 +101,7 @@ $tmp_dir = $_FILES['fichier']['tmp_name'];
             <option value="Vacation animés">
             <option value="Formation suivie">
           </datalist>
-          <input type="text" class="form-control" list='lestypes' id="type" name="type" placeholder="type de diplome" required>
+          <input type="text" class="form-control" list='lestypes' id="type" name="type" placeholder="type d'enseignement" required>
       <!-- here the text will apper  -->
 <div id="libelleFrancaisError"></div>
 

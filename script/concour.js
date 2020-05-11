@@ -2,6 +2,7 @@ $(document).ready(function () {
 	var etab = $('#manageMemberTable').attr("name");
 	//alert(etab);
 	//alert(etablissement);
+	//alert(etab);
 	$.ajax({
         url: 'controller/ConcourController.php',
         mimeType: 'json',
@@ -318,7 +319,26 @@ $(document).on('click', '.modifier', function (event) {
 
 
          });
-
+$(document).on('click', '.afficherCommission', function () {
+let CommissionName=$(this).attr('id');
+$.ajax({
+	url: 'controller/MembreController.php',
+	type: 'post',
+	data: {op: 'finByCommission' ,name:CommissionName,etab:''},
+	dataType: 'json',
+	success:function(response) {
+		 $('#header-title').text('La liste des membres de la '+CommissionName);
+     let body='';
+		 for (var i = 0; i < response.length; i++) {
+		 	   body+='<tr><td>'+response[i].nom+'</td><td>'+response[i].prenom+'</td><td>'+response[i].fonction+'</td></tr>';
+		 }
+		 $('#listemembres').html(body);
+	},
+	error: function(response){
+        alert('error');
+	}
+});
+});
 
     $(document).on('click', '.supprimer', function () {
 
@@ -383,10 +403,12 @@ $(document).on('click', '.postule', function() {
             body    += "<td>" + e.etat + "</td>";
             body    += "<td>" + e.nbrPoste + "</td>";
             body    += "<td>" + e.type + "</td>";
-			body    += "<td>" + e.libelleFrancais + "</td>";
-			body    += "<td>" + e.commission + "</td>";
+						if ($('#myrole').text()=='super-admin') {
+								body    += "<td>" + e.libelleFrancais + "</td>";
+						}
+			body    += "<td><div class='row'><div class='col-sm-8'>" + e.commission + "</div><div class='col-sm-4'><button class='btn btn-info afficherCommission' id='"+e.commission+"' data-toggle='modal' data-target='#showcommission'><i class='fas fa-list'></i></div></button></div></td>";
             body    +=     '<td><div class="dropdown mb-4">'+
-                   '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                   '<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:10px">'+
                       'Option'+
                     '</button>'+
                     '<div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">'+

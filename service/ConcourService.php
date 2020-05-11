@@ -34,6 +34,14 @@ class ConcourService implements IDao {
         $f = $req->fetchAll(PDO::FETCH_OBJ);
         return $f;
     }
+
+    public function findcountpostuleByEtab($idEtab) {
+        $query = "select count(*) as nombre,concours.type from postulation inner join concours on concours.id=postulation.IdConcour where idConcour in( select id from concours where etablissement=?) group by concours.type";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute(array($idEtab)) or die("erreur delete");
+        $f = $req->fetchAll(PDO::FETCH_OBJ);
+        return $f;
+    }
     public function findAllpostule($cin) {
         $query = "select concours.id,session,dateDebutDepot,dateFinDepot,etat,nbrPoste,type,libelleFrancais from concours , etablissement where concours.etablissement = etablissement.id and concours.id in (select IdConcour from postulation where cin=?)";
         $req = $this->connexion->getConnexion()->prepare($query);
@@ -49,7 +57,7 @@ class ConcourService implements IDao {
         return $f;
     }
     public function findAllnonpostuleSearch($cin,$session) {
-        $query = "select concours.id,session,dateDebutDepot,dateFinDepot,etat,nbrPoste,type,libelleFrancais from concours , etablissement where session=? and concours.etablissement = etablissement.id and concours.id in (select IdConcour from postulation where cin=?)";
+        $query = "select concours.id,session,dateDebutDepot,dateFinDepot,etat,nbrPoste,type,libelleFrancais from concours , etablissement where session=? and concours.etablissement = etablissement.id and concours.id not in (select IdConcour from postulation where cin=?)";
         $req = $this->connexion->getConnexion()->prepare($query);
         $req->execute(array($session,$cin)) or die("erreur delete");
         $f = $req->fetchAll(PDO::FETCH_OBJ);

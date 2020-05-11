@@ -84,6 +84,27 @@ $(document).ready(function() {
              alert(image);
 
          });
+         $("#changecneform").submit(function(event) {
+            let imageExt=$('#cinrecto').val().split('.')[1];
+            let imageExt1=$('#cinverso').val().split('.')[1];
+            //let name=myimage.split('/').pop();
+            let imagerecto=cin+"recto."+imageExt;
+            let imageverso=cin+"verso."+imageExt1;
+             alert(imagerecto);
+             //alert(imageverso);
+             $.ajax({
+             url: 'controller/CandidatInfos.php',
+             data: {op: 'changecne',cin:cin,cnerecto:imagerecto,cneverso:imageverso},
+             type: 'POST',
+             success: function (data, textStatus, jqXHR) {
+               //alert('good');
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+               alert('error');
+                 console.log(textStatus);
+             }
+         })
+         });
 
            //alert('cin'+cin+' nomfr'+nomfr+' prenomfr'+prenomfr+' nomar '+nomar+ ' prenomar '+prenomar+' telephone'+telephone+' adresse'+adresse+' fonction'+fonction1+' ville'+ ville +' lieu '+lieu);
                         /* $.ajax({
