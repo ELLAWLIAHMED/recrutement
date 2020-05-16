@@ -361,6 +361,37 @@
         </div>
     </div>
     <!-------------------   MODALS----------------------->
+    <div id="showjuries" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+    <h4 class="modal-title">La liste des membres de Jury</h4>
+    <p style='display:none' id='hidden2'></p>
+    </div>
+    <div class="modal-body">
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Etablissement</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+      <tbody id='listejuries'>
+
+      </tbody>
+
+      </table>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
+    </div>
+    </div>
+    </div>
+    </div>
 <div class="modal fade" id="diplomesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -448,18 +479,31 @@
             <div class="list-group">
             <?php if(count($theses) > 0){
             foreach ($theses as $these) { ?>
-                <a
-                style="cursor: pointer"
-                target="_blank" href="img/candidats/these/<?php echo $these->fichier;?>"
-                class="list-group-item clearfix text-dark">
-                <div class="pull-left">
+
+                <div class="pull-left list-group-item">
                 <h4 class="list-group-item-heading"><?php echo $these->type;?></h4>
                     <p class="list-group-item-text"><?php echo 'le '.$these->date.' à '.$these->centre;?></p>
-                    </div>
-                <span class="pull-right">
-                 <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 50px;">
-                </span>
+
+
+                    <div class="row">
+
+                    <a
+                    style="cursor: pointer"
+                    target="_blank" href="img/candidats/these/<?php echo $these->fichier;?>"
+                    class=" clearfix text-dark col-sm-6">
+                  <h5>Fichier : <img src="https://community.adobe.com/legacyfs/online/1475181_PDF%20-%20Large.png" alt="" class="img-responsive" style="max-height: 45px;"></h5>
                 </a>
+                <span
+                style="cursor: pointer"
+
+                class=" clearfix text-dark col-sm-6">
+              <h5>Liste des jury :  <button type="button" class="btn btn-info show-jury" data-toggle="modal" data-target="#showjuries" style="max-height: 45px;" id="<?php echo $these->id ?>"><i class="fas fa-list"></i></button> </h5>
+            </span>
+
+
+
+               </div>
+              </div>
             <?php }}else { ?>
                 <a
                 class="list-group-item clearfix text-dark">
@@ -479,3 +523,4 @@
 <?php }else {
     echo "<center><h4>Aucun Profile  !</h4></center>";
 } ?>
+<script src='script/candidat/jury-media.js' type="text/javascript"></script>
