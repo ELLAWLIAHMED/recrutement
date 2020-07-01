@@ -160,12 +160,12 @@ session_start();
 		</div>
 
 					<div class="wrap-input100" data-validate = "Enter username">
-						<input class="input100" type="text" name="email" placeholder="User name" style='font-family:arial;'>
+						<input class="input100" type="text" name="email" placeholder="email" style='font-family:arial;'>
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password" style='font-family:arial;'>
+						<input class="input100" type="password" name="password" placeholder="mot de passe" style='font-family:arial;'>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 

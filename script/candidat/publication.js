@@ -85,7 +85,7 @@ dataType : 'json',
 success:function(response) {
   $(".removeMessages").html('<div class="alert alert-info alert-dismissible" role="alert">'+
       '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-      '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Diplome bien ajouté!!!'+
+      '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Publication bien ajoutée !'+
     '</div>');
   remplir(response);
 	},
@@ -117,7 +117,7 @@ $(".removeMessages").html('<div class="alert alert-warning alert-dismissible" ro
 				success:function(response) {
 						$(".removeMessages").html('<div class="alert alert-info alert-dismissible" role="alert">'+
 							  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-							  '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Diplome  bien supprimé !!!'+
+							  '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+'Publication  bien supprimé !!!'+
 							'</div>');
 						// refresh the table
 						remplir(response);

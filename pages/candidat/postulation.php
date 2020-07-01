@@ -6,7 +6,7 @@
 								<tr>
 									<th>Détails</th>
 									<th>Etablissement</th>
-									<th>Nombre de postes</th>
+									<th>Date début dépôt</th>
 									<th>Date fin dépôt</th>
 									<th>Etat</th>
 									<th colspan=2>Action</th>

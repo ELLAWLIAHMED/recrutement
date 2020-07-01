@@ -17,7 +17,7 @@ $('#register').submit(function(event) {
         data: {op: 'add',cin: cin,nomfr: nom,prenomfr: prenom,nomar:'indéfini',prenomar:'indéfini',email:email,password:password,telephone:'indéfini',adresse:'indéfini',ville:'indéfini',fonctionnaire:1,lieuNaissance:'indéfini',dateNaissance:'1999-05-26',cinrecto:cin+'recto.jpg',cinverso:cin+'verso.jpg',photo:'no-photo.jpg'},
         type: "POST",
         success: function(data) {
-        alert('good');
+        //alert('good');
         },
        error: function(error) {
         alert(error);

@@ -167,6 +167,12 @@ $tmp_dir = $_FILES['newpic']['tmp_name'];
       <h1>Carte Nationale d'Identite Electronique (CNIE) <h1>
         <button class="btn btn-primary pull pull-left modifier" data-toggle="modal" data-target="#addcne" id="modificationcne">  <i class="fas fa-plus-circle"></i> Charger mon CNE
         </button>
+        <a href='img/candidats/cne/<?php if (isset($_SESSION['utilisateur'])) {
+                                echo $_SESSION['utilisateur']."recto.jpg";
+                                } else
+                                    echo 'no-photo.jpg'
+                                ?>'><button class="btn btn-primary pull pull-left" >  <i class="fas fa-eye text-white"></i>
+        </button></a>
   </div>
   <div class="col-sm-1">
 
@@ -175,6 +181,12 @@ $tmp_dir = $_FILES['newpic']['tmp_name'];
       <h1>Curriculum vitæ (CV)<h1>
     <button class="btn btn-primary pull pull-right modifier" data-toggle="modal" data-target="#addcv" id="modificationcv">  <i class="fas fa-plus-circle"></i> Charger Mon cv
     </button>
+    <a href='img/candidats/cv/<?php if (isset($_SESSION['utilisateur'])) {
+                            echo $_SESSION['utilisateur'].".pdf";
+                            } else
+                                echo 'no-photo.jpg'
+                            ?>'><button class="btn btn-primary pull pull-left" >  <i class="fas fa-eye text-white"></i>
+    </button></a>
   </div>
 
 </div>

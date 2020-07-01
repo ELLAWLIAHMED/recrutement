@@ -91,7 +91,7 @@ $tmp_dir = $_FILES['fichierpublication']['tmp_name'];
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title"><i class="fas fa-plus-circle"></i>Ajouter une thèse</h4>
+        <h4 class="modal-title"><i class="fas fa-plus-circle"></i>Ajouter une publication</h4>
       </div>
 
         <form  method="post"  class="form-horizontal" id="createMemberForm" enctype="multipart/form-data">

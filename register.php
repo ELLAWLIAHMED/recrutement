@@ -23,7 +23,7 @@
 
   <div class="container">
 
-    <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card o-hidden border-0 shadow-lg" style='margin:120px auto'>
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
@@ -69,11 +69,9 @@
                 <hr>
 
               <hr>
+              
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Mot de passe oublié?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.html">Dèja inscrit? connectez-vous</a>
+                <a class="small" href="login.php">Dèja inscrit? connectez-vous</a>
               </div>
             </div>
           </div>
@@ -85,7 +83,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
